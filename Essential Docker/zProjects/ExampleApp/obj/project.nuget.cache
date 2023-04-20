@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "ALqRp5nsha98wAq8h4Kyj00fE4+Sl0geahYsZtvbzY9G/VH1/cF9qCgd9e/LZp2CynUuJ1sBiMXRM9a6ZwfOuw==",
+  "success": true,
+  "projectFilePath": "C:\\zIT Study\\zTextbooks\\Essential Docker\\zProjects\\ExampleApp\\ExampleApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Dong\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.9\\microsoft.visualstudio.azure.containers.tools.targets.1.10.9.nupkg.sha512"
+  ],
+  "logs": []
+}

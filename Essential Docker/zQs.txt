@@ -1,0 +1,13 @@
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+
+docker inspect c1 -f "{{json .NetworkSettings.Networks }}"
+
+docker run -d --name productapp -p 3000:80 -e DBHOST=172.19.219.88 apress/exampleapp
+
+docker network create --driver nat frontend
+
+-----------------------------------------------------------
+C4-docker build . -t apress/exampleapp -f Dockerfile  
+   The docker build command creates a new image. The period that follows the build keyword provides
+the context, which is the location that is used for commands such as COPY in the Docker file. ?

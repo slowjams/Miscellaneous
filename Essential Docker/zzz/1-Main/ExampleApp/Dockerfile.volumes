@@ -1,0 +1,13 @@
+FROM alpine:3.4
+
+VOLUME /data
+
+WORKDIR /data
+
+EXPOSE 80/tcp
+
+ENV ASPNETCORE_URLS http://+:80
+
+ENTRYPOINT (test -e message.txt && echo "File Exists" \
+ || (echo "Creating File..." \
+ && echo Hello, Docker $(date '+%X') > message.txt)) && cat message.txt

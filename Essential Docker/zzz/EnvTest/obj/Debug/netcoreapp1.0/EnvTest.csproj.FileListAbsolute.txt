@@ -1,0 +1,10 @@
+C:\zIT Study\zTextbooks\Essential Docker\EnvTest\bin\Debug\netcoreapp1.0\EnvTest.deps.json
+C:\zIT Study\zTextbooks\Essential Docker\EnvTest\bin\Debug\netcoreapp1.0\EnvTest.runtimeconfig.json
+C:\zIT Study\zTextbooks\Essential Docker\EnvTest\bin\Debug\netcoreapp1.0\EnvTest.runtimeconfig.dev.json
+C:\zIT Study\zTextbooks\Essential Docker\EnvTest\bin\Debug\netcoreapp1.0\EnvTest.dll
+C:\zIT Study\zTextbooks\Essential Docker\EnvTest\bin\Debug\netcoreapp1.0\EnvTest.pdb
+C:\zIT Study\zTextbooks\Essential Docker\EnvTest\obj\Debug\netcoreapp1.0\EnvTest.csprojAssemblyReference.cache
+C:\zIT Study\zTextbooks\Essential Docker\EnvTest\obj\Debug\netcoreapp1.0\EnvTest.AssemblyInfoInputs.cache
+C:\zIT Study\zTextbooks\Essential Docker\EnvTest\obj\Debug\netcoreapp1.0\EnvTest.AssemblyInfo.cs
+C:\zIT Study\zTextbooks\Essential Docker\EnvTest\obj\Debug\netcoreapp1.0\EnvTest.dll
+C:\zIT Study\zTextbooks\Essential Docker\EnvTest\obj\Debug\netcoreapp1.0\EnvTest.pdb
