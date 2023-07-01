@@ -81,7 +81,7 @@ ubuntu3 ansible_become=true ansible_become_pass=password
 ubuntu-c ansible_connection=local
 
 [centos]
-centos1 ansible_port=2222
+centos1 ansible_port=2222   // overwrite all:vars
 centos[2:3]
 
 [centos:vars]
@@ -93,5 +93,12 @@ ubuntu[1:3]
 [ubuntu:vars]
 ansible_become=true
 ansible_become_pass=password
+
+[linux:children]
+centos
+ubuntu
+
+[all:vars]
+ansible_port=1234
 //--------------------------------Ʌ
 ```
