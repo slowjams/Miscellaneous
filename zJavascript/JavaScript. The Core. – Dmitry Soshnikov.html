@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)http://dmitrysoshnikov.com/ecmascript/javascript-the-core/ -->
+<html itemscope="itemscope" itemtype="http://schema.org/Article" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>JavaScript. The Core. – Dmitry Soshnikov</title>
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="http://dmitrysoshnikov.com/xmlrpc.php">
+	<!--[if lt IE 9]>
+	<script src="http://dmitrysoshnikov.com/wp-content/themes/independent-publisher/js/html5.js" type="text/javascript"></script>
+	<![endif]-->
+	<meta name="robots" content="max-image-preview:large">
+<link rel="alternate" type="application/rss+xml" title="Dmitry Soshnikov » Feed" href="http://dmitrysoshnikov.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Dmitry Soshnikov » Comments Feed" href="http://dmitrysoshnikov.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Dmitry Soshnikov » JavaScript. The Core. Comments Feed" href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/feed/">
+<link rel="stylesheet" id="wp-dark-mode-frontend-css" href="./JavaScript. The Core. – Dmitry Soshnikov_files/frontend.min.css" type="text/css" media="all">
+<style id="wp-dark-mode-frontend-inline-css" type="text/css">
+body{--wp-dark-mode-scale: 1;}
+</style>
+<link rel="stylesheet" id="wp-block-library-css" href="./JavaScript. The Core. – Dmitry Soshnikov_files/style.min.css" type="text/css" media="all">
+<style id="global-styles-inline-css" type="text/css">
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link rel="stylesheet" id="dpsp-frontend-style-css" href="./JavaScript. The Core. – Dmitry Soshnikov_files/style-frontend.css" type="text/css" media="all">
+<link rel="stylesheet" id="genericons-css" href="./JavaScript. The Core. – Dmitry Soshnikov_files/genericons.css" type="text/css" media="all">
+<link rel="stylesheet" id="independent-publisher-style-css" href="./JavaScript. The Core. – Dmitry Soshnikov_files/style.css" type="text/css" media="all">
+<script type="text/javascript" src="./JavaScript. The Core. – Dmitry Soshnikov_files/dark-mode.min.js.download" id="wp-dark-mode-js-js"></script>
+<script type="text/javascript" id="wp-dark-mode-frontend-js-extra">
+/* <![CDATA[ */
+var wpDarkMode = {"config":{"brightness":100,"contrast":90,"sepia":10},"enable_preset":"","customize_colors":"","colors":{"bg":"#000","text":"#dfdedb","link":"#e58c17"},"enable_frontend":"1","enable_backend":"","enable_os_mode":"1","excludes":"rs-fullwidth-wrap, .mejs-container, ._channels-container","includes":"","is_excluded":"","remember_darkmode":"","default_mode":"","keyboard_shortcut":"1","url_parameter":"","images":"","videos":"","is_pro_active":"","is_ultimate_active":"","pro_version":"0","is_elementor_editor":"","is_block_editor":"","frontend_mode":"","pluginUrl":"http:\/\/dmitrysoshnikov.com\/wp-content\/plugins\/wp-dark-mode\/"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./JavaScript. The Core. – Dmitry Soshnikov_files/frontend.min.js.download" id="wp-dark-mode-frontend-js"></script>
+<script type="text/javascript" src="./JavaScript. The Core. – Dmitry Soshnikov_files/jquery.min.js.download" id="jquery-core-js"></script>
+<script type="text/javascript" src="./JavaScript. The Core. – Dmitry Soshnikov_files/jquery-migrate.min.js.download" id="jquery-migrate-js"></script>
+<script type="text/javascript" src="./JavaScript. The Core. – Dmitry Soshnikov_files/front-end.js.download" id="dpsp-frontend-js-js"></script>
+<script type="text/javascript" src="./JavaScript. The Core. – Dmitry Soshnikov_files/fade-post-title.js.download" id="fade-post-title-js"></script>
+<script type="text/javascript" src="./JavaScript. The Core. – Dmitry Soshnikov_files/enhanced-comment-form.js.download" id="enhanced-comment-form-js-js"></script>
+<link rel="https://api.w.org/" href="http://dmitrysoshnikov.com/wp-json/"><link rel="alternate" type="application/json" href="http://dmitrysoshnikov.com/wp-json/wp/v2/posts/1581"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://dmitrysoshnikov.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://dmitrysoshnikov.com/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 6.0.5">
+<link rel="canonical" href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/">
+<link rel="shortlink" href="http://wp.me/pPEDO-pv">
+<link rel="alternate" type="application/json+oembed" href="http://dmitrysoshnikov.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fdmitrysoshnikov.com%2Fecmascript%2Fjavascript-the-core%2F">
+<link rel="alternate" type="text/xml+oembed" href="http://dmitrysoshnikov.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fdmitrysoshnikov.com%2Fecmascript%2Fjavascript-the-core%2F&amp;format=xml">
+<style type="text/css" data-source="Social Pug"></style><meta name="twitter:card" content="summary_large_image"><meta property="og:url" content="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/"><meta property="og:type" content="article"><meta property="og:title" content="JavaScript. The Core."><meta property="og:description" content="Read this article in: German, Russian, French, Polish. Note: a new 2nd Edition of this"><meta property="og:image" content="">
+
+		<!--WordPress Theme Customizer CSS-->
+		<style type="text/css">
+
+			/* Background Color */
+
+			
+			/* Comment Form Background Color */
+
+			
+			/* Text Color */
+
+															
+			/* Link Color */
+
+			a, a:visited, a:hover, a:focus, a:active { color:#284a66; }
+			.enhanced-excerpts .enhanced-excerpt-read-more a, .enhanced-excerpts .enhanced-excerpt-read-more a:hover { color:#284a66; }
+			.post-excerpts .sticky.format-standard .entry-content a, .post-excerpts .sticky.format-standard .entry-content a:focus, .post-excerpts .sticky.format-standard .entry-content a:hover, .post-excerpts .sticky.format-standard .entry-content a:active, .post-excerpts .sticky.format-standard .entry-content a:visited { color:#284a66; }
+			.post-excerpts .format-standard.show-full-content-first-post .entry-content a { color:#284a66; }
+			.post-excerpts .format-standard .entry-content a.moretag { color:#284a66; }
+			.post-excerpts .format-standard .entry-content a.more-link { color:#284a66; }
+			.read-more a, .read-more a:hover { color:#284a66; }
+			.entry-title a:hover { color:#284a66; }
+			.entry-meta a:hover { color:#284a66; }
+			.site-footer a:hover { color:#284a66; }
+			blockquote { border-color:#284a66; }
+			#infinite-footer .blog-credits a, #infinite-footer .blog-credits a:hover { color:#284a66; }
+			#nprogress .bar { background:#284a66; }
+			#nprogress .spinner-icon { border-top-color:#284a66; }
+			#nprogress .spinner-icon { border-left-color:#284a66; }
+			#nprogress .peg { box-shadow:0 0 10px #284a66, 0 0 5px #284a66; }
+
+			button, html input[type="button"], input[type="reset"], input[type="submit"], button:hover, html input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover { background:#284a66; /* Old browsers */ }
+			button, html input[type="button"], input[type="reset"], input[type="submit"], button:hover, html input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover { background: -moz-linear-gradient(top, #284a66 60%, #284a66 100%); /* FF3.6+ */ }
+			button, html input[type="button"], input[type="reset"], input[type="submit"], button:hover, html input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover { background: -webkit-gradient(linear, left top, left bottom, color-stop(60%, #284a66), color-stop(100%, #284a66)); /* Chrome,Safari4+ */ }
+			button, html input[type="button"], input[type="reset"], input[type="submit"], button:hover, html input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover { background: -webkit-linear-gradient(top, #284a66 60%, #284a66 100%); /* Chrome10+,Safari5.1+ */ }
+			button, html input[type="button"], input[type="reset"], input[type="submit"], button:hover, html input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover { background: -o-linear-gradient(top, #284a66 60%, #284a66 100%); /* Opera 11.10+ */ }
+			button, html input[type="button"], input[type="reset"], input[type="submit"], button:hover, html input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover { background: -ms-linear-gradient(top, #284a66 60%, #284a66 100%); /* IE10+ */ }
+			button, html input[type="button"], input[type="reset"], input[type="submit"], button:hover, html input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover { background: linear-gradient(top, #284a66 60%, #284a66 100%); /* W3C */ }
+
+			/* Header Text Color */
+
+																		
+			/* Primary Meta Text Color */
+
+									
+			/* Secondary Meta Text Color */
+
+																											
+		</style>
+		<!--/WordPress Theme Customizer CSS-->
+
+	<link rel="stylesheet" type="text/css" href="./JavaScript. The Core. – Dmitry Soshnikov_files/shCore.css"><link rel="stylesheet" type="text/css" href="./JavaScript. The Core. – Dmitry Soshnikov_files/shThemeDefault.css"></head>
+
+<body class="post-template-default single single-post postid-1581 single-format-standard single-column-layout" itemscope="itemscope" itemtype="http://schema.org/WebPage">
+
+
+
+<div id="page" class="hfeed site">
+	<header id="masthead" class="site-header" role="banner" itemscope="" itemtype="http://schema.org/WPHeader">
+
+		<div class="site-header-info">
+													<a class="site-logo" href="http://dmitrysoshnikov.com/">
+			<img alt="" src="./JavaScript. The Core. – Dmitry Soshnikov_files/882f228c4993ccf0a86e96394636415c.jpeg" srcset="http://2.gravatar.com/avatar/882f228c4993ccf0a86e96394636415c?s=200&amp;d=mm&amp;r=g 2x" class="avatar avatar-100 photo" height="100" width="100" loading="lazy">		</a>
+
+		<h1 class="site-title"><span class="byline"><span class="author vcard"><a class="url fn n" href="http://dmitrysoshnikov.com/" title="View all posts by Dmitry Soshnikov" rel="author">Dmitry Soshnikov</a></span></span></h1>
+		<h2 class="site-description">Software engineer interested in learning and education. Sometimes blog on topics of programming languages theory, compilers, and ECMAScript.</h2>
+
+		
+		<div class="site-published-separator"></div>
+		<h2 class="site-published">Published</h2>
+		<h2 class="site-published-date"><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/" title="JavaScript. The Core." rel="bookmark"><time class="entry-date" datetime="2010-09-02T23:44:02-08:00" pubdate="pubdate">2010-09-02</time></a></h2>
+				
+								</div>
+
+				
+			</header>
+	<!-- #masthead .site-header -->
+
+	<div id="main" class="site-main">
+	<div id="primary" class="content-area">
+		<main id="content" class="site-content" role="main">
+
+						
+				
+<article id="post-1581" class="post-1581 post type-post status-publish format-standard hentry category-ecmascript tag-scope tag-activation-object tag-ecma-262-3 tag-ecmascript tag-execution-context tag-javascript tag-oop tag-scope-chain tag-this tag-variable-object" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+		<header class="entry-header">
+			<h2 class="entry-title-meta">
+			<span class="entry-title-meta-author">
+				<span class="byline"><span class="author vcard"><a class="url fn n" href="http://dmitrysoshnikov.com/" title="View all posts by Dmitry Soshnikov" rel="author">Dmitry Soshnikov</a></span></span>			</span>
+			in <a href="http://dmitrysoshnikov.com/category/ecmascript/" title="View all posts in ECMAScript">ECMAScript</a>			<span class="entry-title-meta-post-date">
+				<span class="sep"> | </span>
+				<a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/" title="JavaScript. The Core." rel="bookmark"><time class="entry-date" datetime="2010-09-02T23:44:02-08:00" pubdate="pubdate">2010-09-02</time></a>			</span>
+					</h2>
+		<h1 class="entry-title" itemprop="name">JavaScript. The Core.</h1>
+		</header>
+	<!-- .entry-header -->
+	<div class="entry-content" itemprop="mainContentOfPage">
+		<div id="dpsp-content-top" class="dpsp-content-wrapper dpsp-shape-rounded dpsp-column-auto dpsp-has-spacing dpsp-no-labels dpsp-show-on-mobile dpsp-button-style-1 dpsp-has-icon-background dpsp-has-button-background"><ul class="dpsp-networks-btns-wrapper dpsp-networks-btns-content "><li><a rel="nofollow" href="https://twitter.com/intent/tweet?text=JavaScript.%20The%20Core.&amp;url=http%3A%2F%2Fdmitrysoshnikov.com%2Fecmascript%2Fjavascript-the-core%2F" class="dpsp-network-btn dpsp-twitter dpsp-no-label dpsp-first"><span class="dpsp-network-icon"></span><span class="dpsp-network-label-wrapper"></span></a></li><li><a rel="nofollow" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fdmitrysoshnikov.com%2Fecmascript%2Fjavascript-the-core%2F&amp;t=JavaScript.%20The%20Core." class="dpsp-network-btn dpsp-facebook dpsp-no-label"><span class="dpsp-network-icon"></span><span class="dpsp-network-label-wrapper"></span></a></li><li><a rel="nofollow" href="https://www.linkedin.com/shareArticle?url=http%3A%2F%2Fdmitrysoshnikov.com%2Fecmascript%2Fjavascript-the-core%2F&amp;title=JavaScript.%20The%20Core.&amp;mini=true" class="dpsp-network-btn dpsp-linkedin dpsp-no-label dpsp-last"><span class="dpsp-network-icon"></span><span class="dpsp-network-label-wrapper"></span></a></li></ul></div><p>Read this article in: <a href="http://molily.de/javascript-core/" title="http://molily.de/javascript-core/">German</a>, <a href="http://dmitrysoshnikov.com/ecmascript/ru-javascript-the-core/" title="http://dmitrysoshnikov.com/ecmascript/ru-javascript-the-core/">Russian</a>, <a href="http://fgribreau.com/articles/voyage-au-coeur-de-javascript.html" title="http://fgribreau.com/articles/voyage-au-coeur-de-javascript.html">French</a>, <a href="http://eternes.pl/blog/ecma-262-javascript-the-core" title="http://eternes.pl/blog/ecma-262-javascript-the-core">Polish</a>.</p>
+<p class="note"><strong>Note:</strong> a new <a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core-2nd-edition/">2nd Edition</a> of this article is available.</p>
+<p class="note"><strong>Note:</strong> see also <b><a href="http://dmitrysoshnikov.com/courses/essentials-of-interpretation/">Essentials of Interpretation</a></b> course, where we build a programming language similar to JavaScript, from scratch.</p>
+<div class="ds-toc"><ol><li><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/#an-object" title="An object">An object</a></li><li><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/#a-prototype-chain" title="A prototype chain">A prototype chain</a></li><li><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/#constructor" title="Constructor">Constructor</a></li><li><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/#execution-context-stack" title="Execution context stack">Execution context stack</a></li><li><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/#execution-context" title="Execution context">Execution context</a></li><li><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/#variable-object" title="Variable object">Variable object</a></li><li><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/#activation-object" title="Activation object">Activation object</a></li><li><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/#scope-chain" title="Scope chain">Scope chain</a></li><li><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/#closures" title="Closures">Closures</a></li><li><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/#this-value" title="This value">This value</a></li><li><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/#conclusion" title="Conclusion">Conclusion</a></li></ol></div><p></p>
+<p><!-- --start donate block ----></p>
+<div id="donate-block" style="position: fixed;
+    right: 45px;
+    top: 75px;
+    border: 1px solid #EEE;
+    padding: 20px;
+    padding-top: 28px;
+    width: 220px;
+    text-align: center;"><button style="
+    background: #7e5ebb !important;
+    font-size: 18px  !important;
+    font-weight: bold  !important;
+    padding: 30px  !important;
+    line-height: 3px  !important;
+    border-radius: 40px  !important;
+    width: 200px;
+" name="submit"><span style="margin-right: 12px;">⭐️</span><a style="color: #fff !important;" target="_blank" href="https://www.paypal.me/dmitrysoshnikov/10USD" rel="noopener noreferrer">Support</a></button><p></p>
+<div style="
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+    margin-top: 20px;
+">Support this project</div>
+<div style="
+    color: #555;
+    font-size: 14px;
+    margin-top: 14px;
+">If you like this work and find it useful, consider <span style="
+    font-weight: bold;
+    color: #000;
+">donating</span> to support <span style="
+    font-weight: bold;
+    color: #000;
+">ads-free</span> and <span style="
+    font-weight: bold;
+    color: #000;
+">high-quality</span> education.</div>
+</div>
+<p><!-- -- end donate block ----></p>
+<p>This note is an overview and summary of the “<a href="http://dmitrysoshnikov.com/tag/ecma-262-3/">ECMA-262-3 in detail</a>” series. Every section contains references to the appropriate matching chapters so you can read them to get a deeper understanding.<span id="more-1581"></span></p>
+<p>Intended audience: experienced programmers, professionals.</p>
+<p>We start out by considering the concept of an <em>object</em>, which is fundamental to ECMAScript.</p>
+<h2 id="an-object" class="header-link"><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/#an-object">An object</a></h2>
+<p>ECMAScript, being a highly-abstracted object-oriented language, deals with <em>objects</em>. There are also <em>primitives</em>, but they, when needed, are also converted to objects.</p>
+<p class="definition">An object is a <em>collection of properties</em> and has a <em>single prototype object</em>. The prototype may be either an object or the <code>null</code> value.</p>
+<p>Let’s take a basic example of an object. A prototype of an object is referenced by the internal <code>[[Prototype]]</code> property. However, in figures we will use <code>__&lt;internal-property&gt;__</code> underscore notation instead of the double brackets, particularly for the prototype object: <code>__proto__</code>.</p>
+<p>For the code:</p>
+<div><div id="highlighter_644911" class="syntaxhighlighter dsHightlight jscript"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="jscript keyword">var</code> <code class="jscript plain">foo = {</code></div><div class="line number2 index1 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">x: 10,</code></div><div class="line number3 index2 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">y: 20</code></div><div class="line number4 index3 alt1"><code class="jscript plain">};</code></div></div></td></tr></tbody></table></div></div>
+<p>we have the structure with two explicit <em>own</em> properties and one implicit <code>__proto__</code> property, which is the reference to the prototype of <code>foo</code>:</p>
+<p><img class="aligncenter figure" src="./JavaScript. The Core. – Dmitry Soshnikov_files/basic-object.png" alt="Figure 1. A basic object with a prototype." title="Figure 1. A basic object with a prototype."></p>
+<p class="figure">Figure 1. A basic object with a prototype.</p>
+<p>What for these prototypes are needed? Let’s consider a <em>prototype chain</em> concept to answer this question.</p>
+<h2 id="a-prototype-chain" class="header-link"><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/#a-prototype-chain">A prototype chain</a></h2>
+<p>Prototype objects are also just simple objects and may have their own prototypes. If a prototype has a non-null reference to its prototype, and so on, this is called the <em>prototype chain</em>.</p>
+<p class="definition">A prototype chain is a <em>finite</em> chain of objects which is used to implement <em>inheritance</em> and <em>shared properties</em>.</p>
+<p>Consider the case when we have two objects which differ only in some small part and all the other part is the same for both objects. Obviously, for a good designed system, we would like to <em>reuse</em> that similar functionality/code without repeating it in every single object. In class-based systems, this <em>code reuse</em> stylistics is called the <em>class-based inheritance</em> — you put similar functionality into the class <code>A</code>, and provide classes <code>B</code> and <code>C</code> which inherit from <code>A</code> and have their own small additional changes.</p>
+<p>ECMAScript has no concept of a class. However, a code reuse stylistics does not differ much (though, in some aspects it’s even more flexible than class-based) and achieved via the <em>prototype chain</em>. This kind of inheritance is called a <em>delegation based inheritance</em> (or, closer to ECMAScript, a <em>prototype based inheritance</em>).</p>
+<p>Similarly like in the example with classes <code>A</code>, <code>B</code> and <code>C</code>, in ECMAScript you create objects: <code>a</code>, <code>b</code>, and <code>c</code>. Thus, object <code>a</code> stores this common part of both <code>b</code> and <code>c</code> objects. And <code>b</code> and <code>c</code> store just their own additional properties or methods.</p>
+<div><div id="highlighter_226654" class="syntaxhighlighter dsHightlight jscript"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div><div class="line number20 index19 alt1">20</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="jscript keyword">var</code> <code class="jscript plain">a = {</code></div><div class="line number2 index1 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">x: 10,</code></div><div class="line number3 index2 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">calculate: </code><code class="jscript keyword">function</code> <code class="jscript plain">(z) {</code></div><div class="line number4 index3 alt1"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript keyword">return</code> <code class="jscript keyword">this</code><code class="jscript plain">.x + </code><code class="jscript keyword">this</code><code class="jscript plain">.y + z;</code></div><div class="line number5 index4 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">}</code></div><div class="line number6 index5 alt1"><code class="jscript plain">};</code></div><div class="line number7 index6 alt2">&nbsp;</div><div class="line number8 index7 alt1"><code class="jscript keyword">var</code> <code class="jscript plain">b = {</code></div><div class="line number9 index8 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">y: 20,</code></div><div class="line number10 index9 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">__proto__: a</code></div><div class="line number11 index10 alt2"><code class="jscript plain">};</code></div><div class="line number12 index11 alt1">&nbsp;</div><div class="line number13 index12 alt2"><code class="jscript keyword">var</code> <code class="jscript plain">c = {</code></div><div class="line number14 index13 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">y: 30,</code></div><div class="line number15 index14 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">__proto__: a</code></div><div class="line number16 index15 alt1"><code class="jscript plain">};</code></div><div class="line number17 index16 alt2">&nbsp;</div><div class="line number18 index17 alt1"><code class="jscript comments">// call the inherited method</code></div><div class="line number19 index18 alt2"><code class="jscript plain">b.calculate(30); </code><code class="jscript comments">// 60</code></div><div class="line number20 index19 alt1"><code class="jscript plain">c.calculate(40); </code><code class="jscript comments">// 80</code></div></div></td></tr></tbody></table></div></div>
+<p>Easy enough, isn’t it? We see that <code>b</code> and <code>c</code> have access to the <code>calculate</code> method which is defined in <code>a</code> object. And this is achieved exactly via this prototype chain.</p>
+<p>The rule is simple: if a property or a method is not found in the object itself (i.e. the object has no such an <em>own</em> property), then there is an attempt to find this property/method in the prototype chain. If the property is not found in the prototype, then a prototype of the prototype is considered, and so on, i.e. the whole prototype chain (absolutely the same is made in class-based inheritance, when resolving an inherited <em>method</em> — there we go through the <em>class chain</em>). The first found property/method with the same name is used. Thus, a found property is called <em>inherited</em> property. If the property is not found after the whole prototype chain lookup, then <code>undefined</code> value is returned.</p>
+<p>Notice, that <code>this</code> value in using an inherited method is set to the <em>original</em> object, but not to the (prototype) object in which the method is found. I.e. in the example above <code>this.y</code> is taken from <code>b</code> and <code>c</code>, but not from <code>a</code>. However, <code>this.x</code> is taken from <code>a</code>, and again via the <em>prototype chain</em> mechanism.</p>
+<p>If a prototype is not specified for an object explicitly, then the default value for <code>__proto__</code> is taken — <code>Object.prototype</code>. Object <code>Object.prototype</code> itself also has a <code>__proto__</code>, which is the <em>final link</em> of a chain and is set to <code>null</code>.</p>
+<p>The next figure shows the inheritance hierarchy of our <code>a</code>, <code>b</code> and <code>c</code> objects:</p>
+<p><img class="aligncenter figure" src="./JavaScript. The Core. – Dmitry Soshnikov_files/prototype-chain.png" alt="Figure 2. A prototype chain." title="Figure 2. A prototype chain."></p>
+<p class="figure">Figure 2. A prototype chain.</p>
+<div class="note wp-dark-mode-ignore">Notice: <abbr title="ECMAScript 5" class="wp-dark-mode-ignore">ES5</abbr> standardized an alternative way for prototype-based inheritance using <code class="wp-dark-mode-ignore">Object.create</code> function:<p class="wp-dark-mode-ignore"></p>
+<div><div id="highlighter_304836" class="syntaxhighlighter dsHightlight jscript"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="jscript keyword">var</code> <code class="jscript plain">b = Object.create(a, {y: {value: 20}});</code></div><div class="line number2 index1 alt1"><code class="jscript keyword">var</code> <code class="jscript plain">c = Object.create(a, {y: {value: 30}});</code></div></div></td></tr></tbody></table></div></div>
+<p class="wp-dark-mode-ignore">You can get more info on new <abbr title="ECMAScript 5" class="wp-dark-mode-ignore">ES5</abbr> APIs in the <a href="http://dmitrysoshnikov.com/ecmascript/es5-chapter-1-properties-and-property-descriptors/#new-api-methods" class="wp-dark-mode-ignore">appropriate chapter</a>.</p>
+<p class="wp-dark-mode-ignore"><abbr title="ECMAScript 6" class="wp-dark-mode-ignore">ES6</abbr> though standardizes the <code class="wp-dark-mode-ignore">__proto__</code>, and it can be used at initialization of objects.
+</p></div>
+<p>Often it is needed to have objects with the <em>same or similar state structure</em> (i.e. the same set of properties), and with different <em>state values</em>. In this case we may use a <em>constructor function</em> which produces objects by <em>specified pattern</em>.</p>
+<h2 id="constructor" class="header-link"><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/#constructor">Constructor</a></h2>
+<p>Besides creation of objects by specified pattern, a <em>constructor</em> function does another useful thing — it <em>automatically sets a prototype object</em> for newly created objects. This prototype object is stored in the <code>ConstructorFunction.prototype</code> property.</p>
+<p>E.g., we may rewrite previous example with <code>b</code> and <code>c</code> objects using a constructor function. Thus, the role of the object <code>a</code> (a prototype) <code>Foo.prototype</code> plays:</p>
+<div><div id="highlighter_178907" class="syntaxhighlighter dsHightlight jscript"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div><div class="line number20 index19 alt1">20</div><div class="line number21 index20 alt2">21</div><div class="line number22 index21 alt1">22</div><div class="line number23 index22 alt2">23</div><div class="line number24 index23 alt1">24</div><div class="line number25 index24 alt2">25</div><div class="line number26 index25 alt1">26</div><div class="line number27 index26 alt2">27</div><div class="line number28 index27 alt1">28</div><div class="line number29 index28 alt2">29</div><div class="line number30 index29 alt1">30</div><div class="line number31 index30 alt2">31</div><div class="line number32 index31 alt1">32</div><div class="line number33 index32 alt2">33</div><div class="line number34 index33 alt1">34</div><div class="line number35 index34 alt2">35</div><div class="line number36 index35 alt1">36</div><div class="line number37 index36 alt2">37</div><div class="line number38 index37 alt1">38</div><div class="line number39 index38 alt2">39</div><div class="line number40 index39 alt1">40</div><div class="line number41 index40 alt2">41</div><div class="line number42 index41 alt1">42</div><div class="line number43 index42 alt2">43</div><div class="line number44 index43 alt1">44</div><div class="line number45 index44 alt2">45</div><div class="line number46 index45 alt1">46</div><div class="line number47 index46 alt2">47</div><div class="line number48 index47 alt1">48</div><div class="line number49 index48 alt2">49</div><div class="line number50 index49 alt1">50</div><div class="line number51 index50 alt2">51</div><div class="line number52 index51 alt1">52</div><div class="line number53 index52 alt2">53</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="jscript comments">// a constructor function</code></div><div class="line number2 index1 alt1"><code class="jscript keyword">function</code> <code class="jscript plain">Foo(y) {</code></div><div class="line number3 index2 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript comments">// which may create objects</code></div><div class="line number4 index3 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript comments">// by specified pattern: they have after</code></div><div class="line number5 index4 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript comments">// creation own "y" property</code></div><div class="line number6 index5 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript keyword">this</code><code class="jscript plain">.y = y;</code></div><div class="line number7 index6 alt2"><code class="jscript plain">}</code></div><div class="line number8 index7 alt1">&nbsp;</div><div class="line number9 index8 alt2"><code class="jscript comments">// also "Foo.prototype" stores reference</code></div><div class="line number10 index9 alt1"><code class="jscript comments">// to the prototype of newly created objects,</code></div><div class="line number11 index10 alt2"><code class="jscript comments">// so we may use it to define shared/inherited</code></div><div class="line number12 index11 alt1"><code class="jscript comments">// properties or methods, so the same as in</code></div><div class="line number13 index12 alt2"><code class="jscript comments">// previous example we have:</code></div><div class="line number14 index13 alt1">&nbsp;</div><div class="line number15 index14 alt2"><code class="jscript comments">// inherited property "x"</code></div><div class="line number16 index15 alt1"><code class="jscript plain">Foo.prototype.x = 10;</code></div><div class="line number17 index16 alt2">&nbsp;</div><div class="line number18 index17 alt1"><code class="jscript comments">// and inherited method "calculate"</code></div><div class="line number19 index18 alt2"><code class="jscript plain">Foo.prototype.calculate = </code><code class="jscript keyword">function</code> <code class="jscript plain">(z) {</code></div><div class="line number20 index19 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript keyword">return</code> <code class="jscript keyword">this</code><code class="jscript plain">.x + </code><code class="jscript keyword">this</code><code class="jscript plain">.y + z;</code></div><div class="line number21 index20 alt2"><code class="jscript plain">};</code></div><div class="line number22 index21 alt1">&nbsp;</div><div class="line number23 index22 alt2"><code class="jscript comments">// now create our "b" and "c"</code></div><div class="line number24 index23 alt1"><code class="jscript comments">// objects using "pattern" Foo</code></div><div class="line number25 index24 alt2"><code class="jscript keyword">var</code> <code class="jscript plain">b = </code><code class="jscript keyword">new</code> <code class="jscript plain">Foo(20);</code></div><div class="line number26 index25 alt1"><code class="jscript keyword">var</code> <code class="jscript plain">c = </code><code class="jscript keyword">new</code> <code class="jscript plain">Foo(30);</code></div><div class="line number27 index26 alt2">&nbsp;</div><div class="line number28 index27 alt1"><code class="jscript comments">// call the inherited method</code></div><div class="line number29 index28 alt2"><code class="jscript plain">b.calculate(30); </code><code class="jscript comments">// 60</code></div><div class="line number30 index29 alt1"><code class="jscript plain">c.calculate(40); </code><code class="jscript comments">// 80</code></div><div class="line number31 index30 alt2">&nbsp;</div><div class="line number32 index31 alt1"><code class="jscript comments">// let's show that we reference</code></div><div class="line number33 index32 alt2"><code class="jscript comments">// properties we expect</code></div><div class="line number34 index33 alt1">&nbsp;</div><div class="line number35 index34 alt2"><code class="jscript plain">console.log(</code></div><div class="line number36 index35 alt1">&nbsp;</div><div class="line number37 index36 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">b.__proto__ === Foo.prototype, </code><code class="jscript comments">// true</code></div><div class="line number38 index37 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">c.__proto__ === Foo.prototype, </code><code class="jscript comments">// true</code></div><div class="line number39 index38 alt2">&nbsp;</div><div class="line number40 index39 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript comments">// also "Foo.prototype" automatically creates</code></div><div class="line number41 index40 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript comments">// a special property "constructor", which is a</code></div><div class="line number42 index41 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript comments">// reference to the constructor function itself;</code></div><div class="line number43 index42 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript comments">// instances "b" and "c" may found it via</code></div><div class="line number44 index43 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript comments">// delegation and use to check their constructor</code></div><div class="line number45 index44 alt2">&nbsp;</div><div class="line number46 index45 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">b.constructor === Foo, </code><code class="jscript comments">// true</code></div><div class="line number47 index46 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">c.constructor === Foo, </code><code class="jscript comments">// true</code></div><div class="line number48 index47 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">Foo.prototype.constructor === Foo, </code><code class="jscript comments">// true</code></div><div class="line number49 index48 alt2">&nbsp;</div><div class="line number50 index49 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">b.calculate === b.__proto__.calculate, </code><code class="jscript comments">// true</code></div><div class="line number51 index50 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">b.__proto__.calculate === Foo.prototype.calculate </code><code class="jscript comments">// true</code></div><div class="line number52 index51 alt1">&nbsp;</div><div class="line number53 index52 alt2"><code class="jscript plain">);</code></div></div></td></tr></tbody></table></div></div>
+<p>This code may be presented as the following relationship:</p>
+<p><img class="aligncenter figure" src="./JavaScript. The Core. – Dmitry Soshnikov_files/constructor-proto-chain.png" alt="Figure 3. A constructor and objects relationship." title="Figure 3. A constructor and objects relationship."></p>
+<p class="figure">Figure 3. A constructor and objects relationship.</p>
+<p>This figure again shows that every object has a prototype. Constructor function <code>Foo</code> also has its own <code>__proto__</code> which is <code>Function.prototype</code>, and which in turn also references via its <code>__proto__</code> property again to the <code>Object.prototype</code>. Thus, repeat, <code>Foo.prototype</code> is just an explicit property of <code>Foo</code> which refers to the prototype of <code>b</code> and <code>c</code> objects.</p>
+<p>Formally, if to consider a concept of a <em>classification</em> (and we’ve exactly just now <em>classified</em> the new separated thing — <code>Foo</code>), a combination of the constructor function and the prototype object may be called as a “class”. Actually, e.g. Python’s <em>first-class</em> dynamic classes have absolutely the same implementation of properties/methods resolution. From this viewpoint, classes of Python are just a syntactic sugar for delegation based inheritance used in ECMAScript.</p>
+<div class="note wp-dark-mode-ignore">Notice: in <abbr title="ECMAScript 6" class="wp-dark-mode-ignore">ES6</abbr> the concept of a “class” is standardized, and is implemented as exactly a syntactic sugar on top of the constructor functions as described above. From this viewpoint prototype chains become as an implementation detail of the class-based inheritance:<p class="wp-dark-mode-ignore"></p>
+<div><div id="highlighter_182728" class="syntaxhighlighter dsHightlight jscript"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="jscript comments">// ES6</code></div><div class="line number2 index1 alt1"><code class="jscript keyword">class</code> <code class="jscript plain">Foo {</code></div><div class="line number3 index2 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">constructor(name) {</code></div><div class="line number4 index3 alt1"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript keyword">this</code><code class="jscript plain">._name = name;</code></div><div class="line number5 index4 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">}</code></div><div class="line number6 index5 alt1">&nbsp;</div><div class="line number7 index6 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">getName() {</code></div><div class="line number8 index7 alt1"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript keyword">return</code> <code class="jscript keyword">this</code><code class="jscript plain">._name;</code></div><div class="line number9 index8 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">}</code></div><div class="line number10 index9 alt1"><code class="jscript plain">}</code></div><div class="line number11 index10 alt2">&nbsp;</div><div class="line number12 index11 alt1"><code class="jscript keyword">class</code> <code class="jscript plain">Bar </code><code class="jscript keyword">extends</code> <code class="jscript plain">Foo {</code></div><div class="line number13 index12 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">getName() {</code></div><div class="line number14 index13 alt1"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript keyword">return</code> <code class="jscript keyword">super</code><code class="jscript plain">.getName() + </code><code class="jscript string">' Doe'</code><code class="jscript plain">;</code></div><div class="line number15 index14 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">}</code></div><div class="line number16 index15 alt1"><code class="jscript plain">}</code></div><div class="line number17 index16 alt2">&nbsp;</div><div class="line number18 index17 alt1"><code class="jscript keyword">var</code> <code class="jscript plain">bar = </code><code class="jscript keyword">new</code> <code class="jscript plain">Bar(</code><code class="jscript string">'John'</code><code class="jscript plain">);</code></div><div class="line number19 index18 alt2"><code class="jscript plain">console.log(bar.getName()); </code><code class="jscript comments">// John Doe</code></div></div></td></tr></tbody></table></div></div>
+</div>
+<p>The complete and detailed explanation of this topic may be found in the Chapter 7 of ES3 series. There are two parts: <a href="http://dmitrysoshnikov.com/ecmascript/chapter-7-1-oop-general-theory/">Chapter 7.1. OOP. The general theory</a>, where you will find description of various OOP paradigms and stylistics and also their comparison with ECMAScript, and <a href="http://dmitrysoshnikov.com/ecmascript/chapter-7-2-oop-ecmascript-implementation/">Chapter 7.2. OOP. ECMAScript implementation</a>, devoted exactly to OOP in ECMAScript.</p>
+<p>Now, when we know basic object aspects, let’s  see on how the <em>runtime program execution</em> is implemented in ECMAScript. This is what is called an <em>execution context stack</em>, every element of which is abstractly may be represented as also an object. Yes, ECMAScript almost everywhere operates with concept of an object 😉</p>
+<h2 id="execution-context-stack" class="header-link"><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/#execution-context-stack">Execution context stack</a></h2>
+<p>There are three types of ECMAScript code: <em>global</em> code, <em>function</em> code and <em>eval</em> code. Every code is evaluated in its <em>execution context</em>. There is only one global context and may be many instances of function and <em>eval</em> execution contexts. Every call of a function, enters the function execution context and evaluates the function code type. Every call of <code>eval</code> function, enters the <em>eval</em> execution context and evaluates its code.</p>
+<p>Notice, that one function may generate infinite set of contexts, because every call to a function (even if the function calls itself recursively) produces a new context with a new <em>context state</em>:</p>
+<div><div id="highlighter_209920" class="syntaxhighlighter dsHightlight jscript"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="jscript keyword">function</code> <code class="jscript plain">foo(bar) {}</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="jscript comments">// call the same function,</code></div><div class="line number4 index3 alt1"><code class="jscript comments">// generate three different</code></div><div class="line number5 index4 alt2"><code class="jscript comments">// contexts in each call, with</code></div><div class="line number6 index5 alt1"><code class="jscript comments">// different context state (e.g. value</code></div><div class="line number7 index6 alt2"><code class="jscript comments">// of the "bar" argument)</code></div><div class="line number8 index7 alt1">&nbsp;</div><div class="line number9 index8 alt2"><code class="jscript plain">foo(10);</code></div><div class="line number10 index9 alt1"><code class="jscript plain">foo(20);</code></div><div class="line number11 index10 alt2"><code class="jscript plain">foo(30);</code></div></div></td></tr></tbody></table></div></div>
+<p>An execution context may activate another context, e.g. a function calls another function (or the global context calls a global function), and so on. Logically, this is implemented as a stack, which is called the <em>execution context stack</em>.</p>
+<p>A context which activates another context is called a <em>caller</em>. A context is being activated is called a <em>callee</em>. A callee at the same time may be a caller of some other callee (e.g. a function called from the global context, calls then some inner function).</p>
+<p>When a caller activates (calls) a callee, the caller suspends its execution and passes the control flow to the callee. The callee is pushed onto the the stack and is becoming a <em>running (active)</em> execution context. After the callee’s context ends, it returns control to the caller, and the evaluation of the caller’s context proceeds (it may activate then other contexts) till the its end, and so on. A callee may simply <em>return</em> or exit with an <em>exception</em>. A thrown but not caught exception may exit (pop from the stack) one or more contexts.</p>
+<p>I.e. all the ECMAScript <em>program runtime</em> is presented as the <em>execution context (<abbr title="Execution context">EC</abbr>) stack</em>, where <em>top</em> of this stack is an <em>active</em> context:</p>
+<p><img class="aligncenter figure" src="./JavaScript. The Core. – Dmitry Soshnikov_files/ec-stack.png" alt="Figure 4. An execution context stack." title="Figure 4. An execution context stack."></p>
+<p class="figure">Figure 4. An execution context stack.</p>
+<p>When program begins it enters the <em>global execution context</em>, which is the <em>bottom</em> and the <em>first</em> element of the stack. Then the global code provides some initialization, creates needed objects and functions. During the execution of the global context, its code may activate some other (already created) function, which will enter their execution contexts, pushing new elements onto the stack, and so on. After the initialization is done, the runtime system is waiting for some <em>event</em> (e.g. user’s mouse click) which will activate some function and which will enter a new execution context.</p>
+<p>In the next figure, having some function context as <code>EC1</code> and the global context as <code>Global EC</code>, we have the following stack modification on entering and exiting <code>EC1</code> from the global context:</p>
+<p><img class="aligncenter figure" src="./JavaScript. The Core. – Dmitry Soshnikov_files/ec-stack-changes.png" alt="Figure 5. An execution context stack changes." title="Figure 5. An execution context stack changes."></p>
+<p class="figure">Figure 5. An execution context stack changes.</p>
+<p>This is exactly how the runtime system of ECMAScript manages the execution of a code.</p>
+<p>More information on execution context in ECMAScript may be found in the appropriate <a href="http://dmitrysoshnikov.com/ecmascript/chapter-1-execution-contexts/">Chapter 1. Execution context</a>.</p>
+<p>As we said, every execution context in the stack may be presented as an object. Let’s see on its structure and what kind of <em>state</em> (which properties) a context is needed to execute its code.</p>
+<h2 id="execution-context" class="header-link"><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/#execution-context">Execution context</a></h2>
+<p>An execution context abstractly may be represented as a simple object. Every execution context has set of properties (which we may call a <em>context’s state</em>) necessary to track the execution progress of its associated code. In the next figure a structure of a context is shown:</p>
+<p><img class="aligncenter figure" src="./JavaScript. The Core. – Dmitry Soshnikov_files/execution-context.png" alt="Figure 6. An execution context structure." title="Figure 6. An execution context structure."></p>
+<p class="figure">Figure 6. An execution context structure.</p>
+<p>Besides these three needed properties (a <em>variable object</em>, a <em><code>this</code> value</em> and a <em>scope chain</em>), an execution context may have any additional state depending on implementation.</p>
+<p>Let’s consider these important properties of a context in detail.</p>
+<h2 id="variable-object" class="header-link"><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/#variable-object">Variable object</a></h2>
+<p class="definition">A <em>variable object</em> is a <em>container of data</em> associated with the execution context. It’s a special object that stores <em>variables</em> and <em>function declarations</em> defined in the context.</p>
+<p>Notice, that <em>function expressions</em> (in contrast with <em>function declarations</em>) are <em>not included</em> into the variable object.</p>
+<p>A variable object is an abstract concept. In different context types, physically, it’s presented using different object. For example, in the global context the variable object is the <em>global object itself</em> (that’s why we have an ability to refer global variables via property names of the global object).</p>
+<p>Let’s consider the following example in the global execution context:</p>
+<div><div id="highlighter_800091" class="syntaxhighlighter dsHightlight jscript"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="jscript keyword">var</code> <code class="jscript plain">foo = 10;</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="jscript keyword">function</code> <code class="jscript plain">bar() {} </code><code class="jscript comments">// function declaration, FD</code></div><div class="line number4 index3 alt1"><code class="jscript plain">(</code><code class="jscript keyword">function</code> <code class="jscript plain">baz() {}); </code><code class="jscript comments">// function expression, FE</code></div><div class="line number5 index4 alt2">&nbsp;</div><div class="line number6 index5 alt1"><code class="jscript plain">console.log(</code></div><div class="line number7 index6 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript keyword">this</code><code class="jscript plain">.foo == foo, </code><code class="jscript comments">// true</code></div><div class="line number8 index7 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">window.bar == bar </code><code class="jscript comments">// true</code></div><div class="line number9 index8 alt2"><code class="jscript plain">);</code></div><div class="line number10 index9 alt1">&nbsp;</div><div class="line number11 index10 alt2"><code class="jscript plain">console.log(baz); </code><code class="jscript comments">// ReferenceError, "baz" is not defined</code></div></div></td></tr></tbody></table></div></div>
+<p>Then the global context’s variable object (<abbr title="Variable object">VO</abbr>) will have the following properties:</p>
+<p><img class="aligncenter figure" src="./JavaScript. The Core. – Dmitry Soshnikov_files/variable-object.png" alt="Figure 7. The global variable object." title="Figure 7. The global variable object."></p>
+<p class="figure">Figure 7. The global variable object.</p>
+<p>See again, that function <code>baz</code> being a <em>function expression</em> is not included into the variable object. That’s why we have a <code>ReferenceError</code> when trying to access it outside the function itself.</p>
+<p>Notice, that in contrast with other languages (e.g. C/C++) in ECMAScript <em>only functions</em> create a new scope. Variables and inner functions defined within a scope of a function are not visible directly outside and do not pollute the global variable object.</p>
+<p>Using <code>eval</code> we also enter a new (eval’s) execution context. However, <code>eval</code> uses either global’s variable object, or a variable object of the caller (e.g. a function from which <code>eval</code> is called).</p>
+<p>And what about functions and their variable objects? In a function context, a variable object is presented as an <em>activation object</em>.</p>
+<h2 id="activation-object" class="header-link"><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/#activation-object">Activation object</a></h2>
+<p>When a function is <em>activated</em> (called) by the caller, a special object, called an <em>activation object</em> is created. It’s filled with <em>formal parameters</em> and the special <code>arguments</code> object (which is a map of formal parameters but with index-properties). The <em>activation object</em> then is used as a <em>variable object</em> of the function context.</p>
+<p>I.e. a function’s variable object is the same simple variable object, but besides variables and function declarations, it also stores formal parameters and <code>arguments</code> object and called the <em>activation object</em>.</p>
+<p>Considering the following example:</p>
+<div><div id="highlighter_662670" class="syntaxhighlighter dsHightlight jscript"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="jscript keyword">function</code> <code class="jscript plain">foo(x, y) {</code></div><div class="line number2 index1 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript keyword">var</code> <code class="jscript plain">z = 30;</code></div><div class="line number3 index2 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript keyword">function</code> <code class="jscript plain">bar() {} </code><code class="jscript comments">// FD</code></div><div class="line number4 index3 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">(</code><code class="jscript keyword">function</code> <code class="jscript plain">baz() {}); </code><code class="jscript comments">// FE</code></div><div class="line number5 index4 alt2"><code class="jscript plain">}</code></div><div class="line number6 index5 alt1">&nbsp;</div><div class="line number7 index6 alt2"><code class="jscript plain">foo(10, 20);</code></div></div></td></tr></tbody></table></div></div>
+<p>we have the next activation object (<abbr title="Activation object">AO</abbr>) of the <code>foo</code> function context:</p>
+<p><img class="aligncenter figure" src="./JavaScript. The Core. – Dmitry Soshnikov_files/activation-object.png" alt="Figure 8. An activation object." title="Figure 8. An activation object."></p>
+<p class="figure">Figure 8. An activation object.</p>
+<p>And again the <em>function expression</em> <code>baz</code> is not included into the variable/activate object.</p>
+<p>The complete description with all subtle cases (such as <em>“hoisting”</em> of variables and function declarations) of the topic may be found in the same name <a href="http://dmitrysoshnikov.com/ecmascript/chapter-2-variable-object/">Chapter 2. Variable object</a>.</p>
+<p class="note">Notice, in <abbr title="ECMA-262-5">ES5</abbr> the concepts of <em>variable object</em>, and <em>activation object</em> are combined into the <em>lexical environments</em> model, which detailed description can be found in the <a href="http://dmitrysoshnikov.com/ecmascript/es5-chapter-3-2-lexical-environments-ecmascript-implementation/" title="ECMA-262-5 in detail. Chapter 3.2. Lexical environments: ECMAScript implementation.">appropriate chapter</a>.</p>
+<p>And we are moving forward to the next section. As is known, in ECMAScript we may use <em>inner functions</em> and in these inner functions we may refer to variables of <em>parent</em> functions or variables of the <em>global</em> context. As we named a variable object as a <em>scope object</em> of the context, similarly to the discussed above prototype chain, there is so-called a <em>scope chain</em>.</p>
+<h2 id="scope-chain" class="header-link"><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/#scope-chain">Scope chain</a></h2>
+<p class="definition">A <em>scope chain</em> is a <em>list of objects</em> that are searched for <em>identifiers</em> appear in the code of the context.</p>
+<p>The rule is again simple and similar to a prototype chain: if a variable is not found in the own scope (in the own variable/activation object), its lookup proceeds in the parent’s variable object, and so on.</p>
+<p>Regarding contexts, identifiers are: <em>names</em> of variables, function declarations, formal parameters, etc. When a function refers in its code the identifier which is not a local variable (or a local function or a formal parameter), such variable is called a <em>free variable</em>. And to <em>search these free variables</em> exactly a <em>scope chain</em> is used.</p>
+<p>In general case, a <em>scope chain</em> is a list of all those <em>parent variable objects</em>, <em>plus</em> (in the front of scope chain) the function’s <em>own variable/activation object</em>. However, the scope chain may contain also any other object, e.g. objects dynamically added to the scope chain during the execution of the context — such as <em>with-objects</em> or special objects of <em>catch-clauses</em>.</p>
+<p>When <em>resolving</em> (looking up) an identifier, the scope chain is searched starting from the activation object, and then (if the identifier isn’t found in the own activation object) up to the top of the scope chain — repeat, the same just like with a prototype chain.</p>
+<div><div id="highlighter_691593" class="syntaxhighlighter dsHightlight jscript"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="jscript keyword">var</code> <code class="jscript plain">x = 10;</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="jscript plain">(</code><code class="jscript keyword">function</code> <code class="jscript plain">foo() {</code></div><div class="line number4 index3 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript keyword">var</code> <code class="jscript plain">y = 20;</code></div><div class="line number5 index4 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">(</code><code class="jscript keyword">function</code> <code class="jscript plain">bar() {</code></div><div class="line number6 index5 alt1"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript keyword">var</code> <code class="jscript plain">z = 30;</code></div><div class="line number7 index6 alt2"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript comments">// "x" and "y" are "free variables"</code></div><div class="line number8 index7 alt1"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript comments">// and are found in the next (after</code></div><div class="line number9 index8 alt2"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript comments">// bar's activation object) object</code></div><div class="line number10 index9 alt1"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript comments">// of the bar's scope chain</code></div><div class="line number11 index10 alt2"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript plain">console.log(x + y + z);</code></div><div class="line number12 index11 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">})();</code></div><div class="line number13 index12 alt2"><code class="jscript plain">})();</code></div></div></td></tr></tbody></table></div></div>
+<p>We may assume the linkage of the scope chain objects via the implicit <code>__parent__</code> property, which refers to the next object in the chain. This approach may be tested in a <a href="http://dmitrysoshnikov.com/ecmascript/chapter-2-variable-object/#feature-of-implementations-property-__parent__">real Rhino code</a>, and exactly this technique is used in <a href="http://dmitrysoshnikov.com/ecmascript/es5-chapter-3-2-lexical-environments-ecmascript-implementation/"><abbr title="ECMAScript 5th edition">ES5</abbr> <em>lexical environments</em></a> (there it’s named an <code>outer</code> link). Another representation of a scope chain may be a simple array. Using a <code>__parent__</code> concept, we may represent the example above with the following figure (thus parent variable objects are saved in the <code>[[Scope]]</code> property of a function):</p>
+<p><img class="aligncenter figure" src="./JavaScript. The Core. – Dmitry Soshnikov_files/scope-chain.png" alt="Figure 9. A scope chain." title="Figure 9. A scope chain."></p>
+<p class="figure">Figure 9. A scope chain.</p>
+<p>At code execution, a scope chain may be augmented using <code>with</code> statement and <code>catch</code> clause objects. And since these objects are simple objects, they may have prototypes (and prototype chains). This fact leads to that scope chain lookup is <em>two-dimensional</em>: (1) first a scope chain link is considered, and then (2) on every scope chain’s link — into the depth of the link’s prototype chain (if the link of course has a prototype).</p>
+<p>For this example:</p>
+<div><div id="highlighter_243175" class="syntaxhighlighter dsHightlight jscript"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div><div class="line number20 index19 alt1">20</div><div class="line number21 index20 alt2">21</div><div class="line number22 index21 alt1">22</div><div class="line number23 index22 alt2">23</div><div class="line number24 index23 alt1">24</div><div class="line number25 index24 alt2">25</div><div class="line number26 index25 alt1">26</div><div class="line number27 index26 alt2">27</div><div class="line number28 index27 alt1">28</div><div class="line number29 index28 alt2">29</div><div class="line number30 index29 alt1">30</div><div class="line number31 index30 alt2">31</div><div class="line number32 index31 alt1">32</div><div class="line number33 index32 alt2">33</div><div class="line number34 index33 alt1">34</div><div class="line number35 index34 alt2">35</div><div class="line number36 index35 alt1">36</div><div class="line number37 index36 alt2">37</div><div class="line number38 index37 alt1">38</div><div class="line number39 index38 alt2">39</div><div class="line number40 index39 alt1">40</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="jscript plain">Object.prototype.x = 10;</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="jscript keyword">var</code> <code class="jscript plain">w = 20;</code></div><div class="line number4 index3 alt1"><code class="jscript keyword">var</code> <code class="jscript plain">y = 30;</code></div><div class="line number5 index4 alt2">&nbsp;</div><div class="line number6 index5 alt1"><code class="jscript comments">// in SpiderMonkey global object</code></div><div class="line number7 index6 alt2"><code class="jscript comments">// i.e. variable object of the global</code></div><div class="line number8 index7 alt1"><code class="jscript comments">// context inherits from "Object.prototype",</code></div><div class="line number9 index8 alt2"><code class="jscript comments">// so we may refer "not defined global</code></div><div class="line number10 index9 alt1"><code class="jscript comments">// variable x", which is found in</code></div><div class="line number11 index10 alt2"><code class="jscript comments">// the prototype chain</code></div><div class="line number12 index11 alt1">&nbsp;</div><div class="line number13 index12 alt2"><code class="jscript plain">console.log(x); </code><code class="jscript comments">// 10</code></div><div class="line number14 index13 alt1">&nbsp;</div><div class="line number15 index14 alt2"><code class="jscript plain">(</code><code class="jscript keyword">function</code> <code class="jscript plain">foo() {</code></div><div class="line number16 index15 alt1">&nbsp;</div><div class="line number17 index16 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript comments">// "foo" local variables</code></div><div class="line number18 index17 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript keyword">var</code> <code class="jscript plain">w = 40;</code></div><div class="line number19 index18 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript keyword">var</code> <code class="jscript plain">x = 100;</code></div><div class="line number20 index19 alt1">&nbsp;</div><div class="line number21 index20 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript comments">// "x" is found in the</code></div><div class="line number22 index21 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript comments">// "Object.prototype", because</code></div><div class="line number23 index22 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript comments">// {z: 50} inherits from it</code></div><div class="line number24 index23 alt1">&nbsp;</div><div class="line number25 index24 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript keyword">with</code> <code class="jscript plain">({z: 50}) {</code></div><div class="line number26 index25 alt1"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript plain">console.log(w, x, y , z); </code><code class="jscript comments">// 40, 10, 30, 50</code></div><div class="line number27 index26 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">}</code></div><div class="line number28 index27 alt1">&nbsp;</div><div class="line number29 index28 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript comments">// after "with" object is removed</code></div><div class="line number30 index29 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript comments">// from the scope chain, "x" is</code></div><div class="line number31 index30 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript comments">// again found in the AO of "foo" context;</code></div><div class="line number32 index31 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript comments">// variable "w" is also local</code></div><div class="line number33 index32 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">console.log(x, w); </code><code class="jscript comments">// 100, 40</code></div><div class="line number34 index33 alt1">&nbsp;</div><div class="line number35 index34 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript comments">// and that's how we may refer</code></div><div class="line number36 index35 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript comments">// shadowed global "w" variable in</code></div><div class="line number37 index36 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript comments">// the browser host environment</code></div><div class="line number38 index37 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">console.log(window.w); </code><code class="jscript comments">// 20</code></div><div class="line number39 index38 alt2">&nbsp;</div><div class="line number40 index39 alt1"><code class="jscript plain">})();</code></div></div></td></tr></tbody></table></div></div>
+<p>we have the following structure (that is, before we go to the <code>__parent__</code> link, first <code>__proto__</code> chain is considered):</p>
+<p><img class="aligncenter figure" src="./JavaScript. The Core. – Dmitry Soshnikov_files/scope-chain-with.png" alt="Figure 10. A &quot;with-augmented&quot; scope chain." title="Figure 10. A &quot;with-augmented&quot; scope chain."></p>
+<p class="figure">Figure 10. A “with-augmented” scope chain.</p>
+<p>Notice, that not in all implementations the global object inherits from the <code>Object.prototype</code>. The behavior described on the figure (with referencing “non-defined” variable <code>x</code> from the global context) may be tested e.g. in SpiderMonkey.</p>
+<p>Until all parent variable objects exist, there is nothing special in getting parent data from the inner function — we just traverse through the scope chain resolving (searching) needed variable. However, as we mentioned above, after a context ends, all its state and it itself are <em>destroyed</em>. At the same time an <em>inner function</em> may be <em>returned</em> from the parent function. Moreover, this returned function may be later activated from another context. What will be with such an activation if a context of some free variable is already “gone”? In the general theory, a concept which helps to solve this issue is called a <em>(lexical) closure</em>, which in ECMAScript is directly related with a <em>scope chain</em> concept.</p>
+<h2 id="closures" class="header-link"><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/#closures">Closures</a></h2>
+<p>In ECMAScript, functions are the <em>first-class</em> objects. This term means that functions may be passed as arguments to other functions (in such case they are called <em>“funargs”</em>, short from “functional arguments”). Functions which receive “funargs” are called <em>higher-order functions</em> or, closer to mathematics, <em>operators</em>. Also functions may be returned from other functions. Functions which return other functions are called <em>function valued</em> functions (or functions with <em>functional value</em>).</p>
+<p>There are two conceptual problems related with “funargs” and “functional values”. And these two sub-problems are generalized in one which is called a <em>“Funarg problem”</em> (or “A problem of a functional argument”). And exactly to solve the <em>complete “funarg problem”</em>, the concept of <em>closures</em> was invented. Let’s describe in more detail these two sub-problems (we’ll see that both of them are solved in ECMAScript using a mentioned on figures <code>[[Scope]]</code> property of a function).</p>
+<p>First subtype of the “funarg problem” is an <em>“upward funarg problem”</em>. It appears when a function is returned “up” (to the outside) from another function and uses already mentioned above <em>free variables</em>. To be able access variables of the parent context <em>even after the parent context ends</em>, the inner function <em>at creation moment</em> saves in it’s <code>[[Scope]]</code> property parent’s <em>scope chain</em>. Then when the function is <em>activated</em>, the scope chain of its context is formed as combination of the activation object and this <code>[[Scope]]</code> property (actually, what we’ve just seen above on figures):</p>
+<div><div id="highlighter_70541" class="syntaxhighlighter dsHightlight jscript"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="jscript plain">Scope chain = Activation object + [[Scope]]</code></div></div></td></tr></tbody></table></div></div>
+<p>Notice again the main thing — exactly at <em>creation moment</em> — a function saves <em>parent’s</em> scope chain, because exactly this <em>saved scope chain</em> will be used for variables lookup then in further calls of the function.</p>
+<div><div id="highlighter_62166" class="syntaxhighlighter dsHightlight jscript"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="jscript keyword">function</code> <code class="jscript plain">foo() {</code></div><div class="line number2 index1 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript keyword">var</code> <code class="jscript plain">x = 10;</code></div><div class="line number3 index2 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript keyword">return</code> <code class="jscript keyword">function</code> <code class="jscript plain">bar() {</code></div><div class="line number4 index3 alt1"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript plain">console.log(x);</code></div><div class="line number5 index4 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">};</code></div><div class="line number6 index5 alt1"><code class="jscript plain">}</code></div><div class="line number7 index6 alt2">&nbsp;</div><div class="line number8 index7 alt1"><code class="jscript comments">// "foo" returns also a function</code></div><div class="line number9 index8 alt2"><code class="jscript comments">// and this returned function uses</code></div><div class="line number10 index9 alt1"><code class="jscript comments">// free variable "x"</code></div><div class="line number11 index10 alt2">&nbsp;</div><div class="line number12 index11 alt1"><code class="jscript keyword">var</code> <code class="jscript plain">returnedFunction = foo();</code></div><div class="line number13 index12 alt2">&nbsp;</div><div class="line number14 index13 alt1"><code class="jscript comments">// global variable "x"</code></div><div class="line number15 index14 alt2"><code class="jscript keyword">var</code> <code class="jscript plain">x = 20;</code></div><div class="line number16 index15 alt1">&nbsp;</div><div class="line number17 index16 alt2"><code class="jscript comments">// execution of the returned function</code></div><div class="line number18 index17 alt1"><code class="jscript plain">returnedFunction(); </code><code class="jscript comments">// 10, but not 20</code></div></div></td></tr></tbody></table></div></div>
+<p>This style of scope is called the <em>static (or lexical) scope</em>. We see that the variable <code>x</code> is found in the saved <code>[[Scope]]</code> of returned <code>bar</code> function. In general theory, there is also a <em>dynamic scope</em> when the variable <code>x</code> in the example above would be resolved as <code>20</code>, but not <code>10</code>. However, dynamic scope is not used in ECMAScript.</p>
+<p>The second part of the “funarg problem”  is a <em>“downward funarg problem”</em>. In this case a parent context may exist, but may be an ambiguity with resolving an identifier. The problem is: <em>from which scope</em> a value of an identifier should be used — statically saved at a function’s creation or dynamically formed at execution (i.e. a scope of a <em>caller</em>)? To avoid this ambiguity and to form a closure, a <em>static scope</em> is decided to be used:</p>
+<div><div id="highlighter_773307" class="syntaxhighlighter dsHightlight jscript"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div><div class="line number20 index19 alt1">20</div><div class="line number21 index20 alt2">21</div><div class="line number22 index21 alt1">22</div><div class="line number23 index22 alt2">23</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="jscript comments">// global "x"</code></div><div class="line number2 index1 alt1"><code class="jscript keyword">var</code> <code class="jscript plain">x = 10;</code></div><div class="line number3 index2 alt2">&nbsp;</div><div class="line number4 index3 alt1"><code class="jscript comments">// global function</code></div><div class="line number5 index4 alt2"><code class="jscript keyword">function</code> <code class="jscript plain">foo() {</code></div><div class="line number6 index5 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">console.log(x);</code></div><div class="line number7 index6 alt2"><code class="jscript plain">}</code></div><div class="line number8 index7 alt1">&nbsp;</div><div class="line number9 index8 alt2"><code class="jscript plain">(</code><code class="jscript keyword">function</code> <code class="jscript plain">(funArg) {</code></div><div class="line number10 index9 alt1">&nbsp;</div><div class="line number11 index10 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript comments">// local "x"</code></div><div class="line number12 index11 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript keyword">var</code> <code class="jscript plain">x = 20;</code></div><div class="line number13 index12 alt2">&nbsp;</div><div class="line number14 index13 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript comments">// there is no ambiguity,</code></div><div class="line number15 index14 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript comments">// because we use global "x",</code></div><div class="line number16 index15 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript comments">// which was statically saved in</code></div><div class="line number17 index16 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript comments">// [[Scope]] of the "foo" function,</code></div><div class="line number18 index17 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript comments">// but not the "x" of the caller's scope,</code></div><div class="line number19 index18 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript comments">// which activates the "funArg"</code></div><div class="line number20 index19 alt1">&nbsp;</div><div class="line number21 index20 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">funArg(); </code><code class="jscript comments">// 10, but not 20</code></div><div class="line number22 index21 alt1">&nbsp;</div><div class="line number23 index22 alt2"><code class="jscript plain">})(foo); </code><code class="jscript comments">// pass "down" foo as a "funarg"</code></div></div></td></tr></tbody></table></div></div>
+<p>We may conclude that a <em>static scope</em> is an <em>obligatory requirement to have closures</em> in a language. However, some languages may provided combination of dynamic and static scopes, allowing a programmer to choose — what to closure and what do not. Since in ECMAScript only a static scope is used (i.e. we have solutions for both subtypes of the “funarg problem”), the conclusion is: <em>ECMAScript has complete support of closures</em>, which technically are implemented using <code>[[Scope]]</code> property of functions. Now we may give a correct definition of a closure:</p>
+<p class="definition">A <em>closure</em> is a combination of a code block (in ECMAScript this is a function) and statically/lexically saved all parent scopes. Thus, via these saved scopes a function may easily refer free variables.</p>
+<p>Notice, that since <em>every</em> (normal) function saves <code>[[Scope]]</code> at creation, theoretically, <em>all functions</em> in ECMAScript <em>are closures</em>.</p>
+<p>Another important thing to note, that several functions may have <em>the same parent scope</em> (it’s quite a normal situation when e.g. we have two inner/global functions). In this case variables stored in the <code>[[Scope]]</code> property are <em>shared between all functions</em> having the same parent scope chain. Changes of variables made by one closure are <em>reflected</em> on reading these variables in another closure:</p>
+<div><div id="highlighter_689930" class="syntaxhighlighter dsHightlight jscript"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="jscript keyword">function</code> <code class="jscript plain">baz() {</code></div><div class="line number2 index1 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript keyword">var</code> <code class="jscript plain">x = 1;</code></div><div class="line number3 index2 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript keyword">return</code> <code class="jscript plain">{</code></div><div class="line number4 index3 alt1"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript plain">foo: </code><code class="jscript keyword">function</code> <code class="jscript plain">foo() { </code><code class="jscript keyword">return</code> <code class="jscript plain">++x; },</code></div><div class="line number5 index4 alt2"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript plain">bar: </code><code class="jscript keyword">function</code> <code class="jscript plain">bar() { </code><code class="jscript keyword">return</code> <code class="jscript plain">--x; }</code></div><div class="line number6 index5 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">};</code></div><div class="line number7 index6 alt2"><code class="jscript plain">}</code></div><div class="line number8 index7 alt1">&nbsp;</div><div class="line number9 index8 alt2"><code class="jscript keyword">var</code> <code class="jscript plain">closures = baz();</code></div><div class="line number10 index9 alt1">&nbsp;</div><div class="line number11 index10 alt2"><code class="jscript plain">console.log(</code></div><div class="line number12 index11 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">closures.foo(), </code><code class="jscript comments">// 2</code></div><div class="line number13 index12 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">closures.bar()&nbsp; </code><code class="jscript comments">// 1</code></div><div class="line number14 index13 alt1"><code class="jscript plain">);</code></div></div></td></tr></tbody></table></div></div>
+<p>This code may be illustrated with the following figure:</p>
+<p><img class="aligncenter figure" src="./JavaScript. The Core. – Dmitry Soshnikov_files/shared-scope.png" alt="Figure 11. A shared [[Scope]]." title="Figure 11. A shared [[Scope]]."></p>
+<p class="figure">Figure 11. A shared [[Scope]].</p>
+<p>Exactly with this feature confusion with creating several functions in a loop is related. Using a loop counter inside created functions, some programmers often get unexpected results when all functions have the <em>same</em> value of a counter inside a function. Now it should be clear why it is so — because all these functions have the same <code>[[Scope]]</code> where the loop counter has the last assigned value.</p>
+<div><div id="highlighter_206799" class="syntaxhighlighter dsHightlight jscript"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="jscript keyword">var</code> <code class="jscript plain">data = [];</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="jscript keyword">for</code> <code class="jscript plain">(</code><code class="jscript keyword">var</code> <code class="jscript plain">k = 0; k &lt; 3; k++) {</code></div><div class="line number4 index3 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">data[k] = </code><code class="jscript keyword">function</code> <code class="jscript plain">() {</code></div><div class="line number5 index4 alt2"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript plain">console.log(k);</code></div><div class="line number6 index5 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">};</code></div><div class="line number7 index6 alt2"><code class="jscript plain">}</code></div><div class="line number8 index7 alt1">&nbsp;</div><div class="line number9 index8 alt2"><code class="jscript plain">data[0](); </code><code class="jscript comments">// 3, but not 0</code></div><div class="line number10 index9 alt1"><code class="jscript plain">data[1](); </code><code class="jscript comments">// 3, but not 1</code></div><div class="line number11 index10 alt2"><code class="jscript plain">data[2](); </code><code class="jscript comments">// 3, but not 2</code></div></div></td></tr></tbody></table></div></div>
+<p>There are several techniques which may solve this issue. One of the techniques is to provide an additional object in the scope chain — e.g. using additional function:</p>
+<div><div id="highlighter_776299" class="syntaxhighlighter dsHightlight jscript"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="jscript keyword">var</code> <code class="jscript plain">data = [];</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="jscript keyword">for</code> <code class="jscript plain">(</code><code class="jscript keyword">var</code> <code class="jscript plain">k = 0; k &lt; 3; k++) {</code></div><div class="line number4 index3 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">data[k] = (</code><code class="jscript keyword">function</code> <code class="jscript plain">(x) {</code></div><div class="line number5 index4 alt2"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript keyword">return</code> <code class="jscript keyword">function</code> <code class="jscript plain">() {</code></div><div class="line number6 index5 alt1"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript plain">console.log(x);</code></div><div class="line number7 index6 alt2"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript plain">};</code></div><div class="line number8 index7 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">})(k); </code><code class="jscript comments">// pass "k" value</code></div><div class="line number9 index8 alt2"><code class="jscript plain">}</code></div><div class="line number10 index9 alt1">&nbsp;</div><div class="line number11 index10 alt2"><code class="jscript comments">// now it is correct</code></div><div class="line number12 index11 alt1"><code class="jscript plain">data[0](); </code><code class="jscript comments">// 0</code></div><div class="line number13 index12 alt2"><code class="jscript plain">data[1](); </code><code class="jscript comments">// 1</code></div><div class="line number14 index13 alt1"><code class="jscript plain">data[2](); </code><code class="jscript comments">// 2</code></div></div></td></tr></tbody></table></div></div>
+<div class="note wp-dark-mode-ignore">NOTE: <abbr title="ECMAScript 6" class="wp-dark-mode-ignore">ES6</abbr> introduced <em class="wp-dark-mode-ignore">block-scope</em> bindings. This is done via <code class="wp-dark-mode-ignore">let</code> or <code class="wp-dark-mode-ignore">const</code> keywords. Example from above can now easily and conveniently rewritten as:<p class="wp-dark-mode-ignore"></p>
+<div><div id="highlighter_176076" class="syntaxhighlighter dsHightlight jscript"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="jscript keyword">let</code> <code class="jscript plain">data = [];</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="jscript keyword">for</code> <code class="jscript plain">(</code><code class="jscript keyword">let</code> <code class="jscript plain">k = 0; k &lt; 3; k++) {</code></div><div class="line number4 index3 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">data[k] = </code><code class="jscript keyword">function</code> <code class="jscript plain">() {</code></div><div class="line number5 index4 alt2"><code class="jscript spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="jscript plain">console.log(k);</code></div><div class="line number6 index5 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">};</code></div><div class="line number7 index6 alt2"><code class="jscript plain">}</code></div><div class="line number8 index7 alt1">&nbsp;</div><div class="line number9 index8 alt2"><code class="jscript plain">data[0](); </code><code class="jscript comments">// 0</code></div><div class="line number10 index9 alt1"><code class="jscript plain">data[1](); </code><code class="jscript comments">// 1</code></div><div class="line number11 index10 alt2"><code class="jscript plain">data[2](); </code><code class="jscript comments">// 2</code></div></div></td></tr></tbody></table></div></div>
+</div>
+<p>Those who interested deeper in theory of closures and their practical application, may find additional information in the <a href="http://dmitrysoshnikov.com/ecmascript/chapter-6-closures/">Chapter 6. Closures</a>. And to get more information about a scope chain, take a look on the same name <a href="http://dmitrysoshnikov.com/ecmascript/chapter-4-scope-chain/">Chapter 4. Scope chain</a>.</p>
+<p>And we’re moving to the next section, considering the last property of an execution context. This is concept of a <code>this</code> value.</p>
+<h2 id="this-value" class="header-link"><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/#this-value">This value</a></h2>
+<p class="definition">A <code>this</code> value is a special object which is related with the execution context. Therefore, it may be named as a <em>context object</em> (i.e. an object in which context the execution context is <em>activated</em>).</p>
+<p><em>Any object</em> can be used as <code>this</code> value of the context. One important note is that the  <code>this</code> value is a <em>property of the execution context</em>, but <em>not</em> a property of the variable object.</p>
+<p>This feature is very important, because in <em>contrast with variables</em>, <em><code>this</code> value never participates in identifier resolution process</em>. I.e. when accessing <code>this</code> in a code, its value is taken <em>directly</em> from the execution context and <em>without any scope chain lookup</em>. The value of <code>this</code> is determined <em>only once</em>, on <em>entering the context</em>.</p>
+<p class="note">NOTE: In <abbr title="ECMAScript 6">ES6</abbr> <code>this</code> actually became a property of a <em>lexical environment</em>, i.e. property of the <em>variable object</em> in ES3 terminology. This is done to support <em>arrow functions</em>, which have <em>lexical <code>this</code></em>, which they inherit from parent contexts.</p>
+<p>By the way, in contrast with ECMAScript, e.g. Python has its <code>self</code> argument of methods as a simple variable which is resolved the same and may be even changed during the execution to another value. In ECMAScript it is <em>not possible</em> to assign a new value to <code>this</code>, because, repeat, it’s not a variable and is not placed in the variable object.</p>
+<p>In the global context, a <code>this value</code> is the <em>global object itself</em> (that means, <code>this</code> value here equals to <em>variable object</em>):</p>
+<div><div id="highlighter_689328" class="syntaxhighlighter dsHightlight jscript"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="jscript keyword">var</code> <code class="jscript plain">x = 10;</code></div><div class="line number2 index1 alt1">&nbsp;</div><div class="line number3 index2 alt2"><code class="jscript plain">console.log(</code></div><div class="line number4 index3 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">x, </code><code class="jscript comments">// 10</code></div><div class="line number5 index4 alt2"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript keyword">this</code><code class="jscript plain">.x, </code><code class="jscript comments">// 10</code></div><div class="line number6 index5 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">window.x </code><code class="jscript comments">// 10</code></div><div class="line number7 index6 alt2"><code class="jscript plain">);</code></div></div></td></tr></tbody></table></div></div>
+<p>In case of a function context, <code>this</code> value in <em>every single function call</em> may be <em>different</em>. Here <code>this</code> value is provided by the <em>caller</em> via the <em>form of a call expression</em> (i.e. the way of how a function is activated). For example, the function <code>foo</code> below is a <em>callee</em>, being called from the global context, which is a <em>caller</em>. Let’s see on the example, how for the same code of a function, <code>this</code> value in different calls (different ways of the function activation) is provided <em>differently</em> by the caller:</p>
+<div><div id="highlighter_927003" class="syntaxhighlighter dsHightlight jscript"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div><div class="line number20 index19 alt1">20</div><div class="line number21 index20 alt2">21</div><div class="line number22 index21 alt1">22</div><div class="line number23 index22 alt2">23</div><div class="line number24 index23 alt1">24</div><div class="line number25 index24 alt2">25</div><div class="line number26 index25 alt1">26</div><div class="line number27 index26 alt2">27</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="jscript comments">// the code of the "foo" function</code></div><div class="line number2 index1 alt1"><code class="jscript comments">// never changes, but the "this" value</code></div><div class="line number3 index2 alt2"><code class="jscript comments">// differs in every activation</code></div><div class="line number4 index3 alt1">&nbsp;</div><div class="line number5 index4 alt2"><code class="jscript keyword">function</code> <code class="jscript plain">foo() {</code></div><div class="line number6 index5 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">alert(</code><code class="jscript keyword">this</code><code class="jscript plain">);</code></div><div class="line number7 index6 alt2"><code class="jscript plain">}</code></div><div class="line number8 index7 alt1">&nbsp;</div><div class="line number9 index8 alt2"><code class="jscript comments">// caller activates "foo" (callee) and</code></div><div class="line number10 index9 alt1"><code class="jscript comments">// provides "this" for the callee</code></div><div class="line number11 index10 alt2">&nbsp;</div><div class="line number12 index11 alt1"><code class="jscript plain">foo(); </code><code class="jscript comments">// global object</code></div><div class="line number13 index12 alt2"><code class="jscript plain">foo.prototype.constructor(); </code><code class="jscript comments">// foo.prototype</code></div><div class="line number14 index13 alt1">&nbsp;</div><div class="line number15 index14 alt2"><code class="jscript keyword">var</code> <code class="jscript plain">bar = {</code></div><div class="line number16 index15 alt1"><code class="jscript spaces">&nbsp;&nbsp;</code><code class="jscript plain">baz: foo</code></div><div class="line number17 index16 alt2"><code class="jscript plain">};</code></div><div class="line number18 index17 alt1">&nbsp;</div><div class="line number19 index18 alt2"><code class="jscript plain">bar.baz(); </code><code class="jscript comments">// bar</code></div><div class="line number20 index19 alt1">&nbsp;</div><div class="line number21 index20 alt2"><code class="jscript plain">(bar.baz)(); </code><code class="jscript comments">// also bar</code></div><div class="line number22 index21 alt1"><code class="jscript plain">(bar.baz = bar.baz)(); </code><code class="jscript comments">// but here is global object</code></div><div class="line number23 index22 alt2"><code class="jscript plain">(bar.baz, bar.baz)(); </code><code class="jscript comments">// also global object</code></div><div class="line number24 index23 alt1"><code class="jscript plain">(</code><code class="jscript keyword">false</code> <code class="jscript plain">|| bar.baz)(); </code><code class="jscript comments">// also global object</code></div><div class="line number25 index24 alt2">&nbsp;</div><div class="line number26 index25 alt1"><code class="jscript keyword">var</code> <code class="jscript plain">otherFoo = bar.baz;</code></div><div class="line number27 index26 alt2"><code class="jscript plain">otherFoo(); </code><code class="jscript comments">// again global object</code></div></div></td></tr></tbody></table></div></div>
+<p>To consider deeply why (and that is more essential — <em>how</em>) <code>this</code> value may change in every function call, you may read <a href="http://dmitrysoshnikov.com/ecmascript/chapter-3-this/">Chapter 3. This</a> where all mentioned above cases are discussed in detail.</p>
+<h2 id="conclusion" class="header-link"><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/#conclusion">Conclusion</a></h2>
+<p>At this step we finish this brief overview. Though, it turned out to not so “brief” 😉 However, the whole explanation of all these topics requires a complete book. We though didn’t touch two major topics: <em>functions</em> (and the difference between some types of functions, e.g. <em>function declaration</em> and <em>function expression</em>) and the <em>evaluation strategy</em> used in ECMAScript. Both topics may be found in the appropriate chapters of ES3 series: <a href="http://dmitrysoshnikov.com/ecmascript/chapter-5-functions/">Chapter 5. Functions</a> and <a href="http://dmitrysoshnikov.com/ecmascript/chapter-8-evaluation-strategy/">Chapter 8. Evaluation strategy</a>.</p>
+<p>If you have comments, questions or additions, I’ll be glad to discuss them in comments.</p>
+<p>Good luck in studying ECMAScript!</p>
+<p><strong>Written by:</strong> Dmitry A. Soshnikov<br>
+<strong>Published on: </strong>2010-09-02</p>
+<p><!-- start donate block --></p>
+<div id="donate-block-mobile" style="
+	display: none;						    
+    border: 1px solid #EEE;
+    padding: 20px;
+    padding-top: 28px;
+    width: 220px;						  
+    text-align: center;"><button style="
+    background: #7e5ebb !important;
+    font-size: 18px  !important;
+    font-weight: bold  !important;
+    padding: 30px  !important;
+    line-height: 3px  !important;
+    border-radius: 40px  !important;
+    width: 200px;
+"><span style="margin-right: 12px;">⭐️</span><a style="color: #fff !important;" target="_blank" href="https://www.paypal.me/dmitrysoshnikov/10USD" rel="noopener noreferrer">Donate</a></button><p></p>
+<div style="
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+    margin-top: 20px;
+">Support this project</div>
+<div style="
+    color: #555;
+    font-size: 14px;
+    margin-top: 14px;
+">If you like this work and find its useful, consider <span style="
+    font-weight: bold;
+    color: #000;
+">donating</span> to support <span style="
+    font-weight: bold;
+    color: #000;
+">ads-free</span> and <span style="
+    font-weight: bold;
+    color: #000;
+">high-quality</span> education.</div>
+</div>
+<p><!-- end donate block --></p>
+<p>
+			</p><div style="clear: both;">
+	<div id="secondary" class="widget-area" role="complementary">
+					
+			<aside id="search" class="widget widget_search">
+				<form method="get" id="searchform" action="http://dmitrysoshnikov.com/" role="search">
+	<label for="s" class="screen-reader-text">Search</label>
+	<input type="text" class="field" name="s" value="" id="s" placeholder="Search …">
+	<input type="submit" class="submit" name="submit" id="searchsubmit" value="Search">
+</form>
+			</aside>
+
+			<aside id="archives" class="widget">
+				<h1 class="widget-title">Archives</h1>
+				<ul>
+						<li><a href="http://dmitrysoshnikov.com/2023/07/">July 2023</a></li>
+	<li><a href="http://dmitrysoshnikov.com/2023/04/">April 2023</a></li>
+	<li><a href="http://dmitrysoshnikov.com/2022/06/">June 2022</a></li>
+	<li><a href="http://dmitrysoshnikov.com/2022/01/">January 2022</a></li>
+	<li><a href="http://dmitrysoshnikov.com/2021/11/">November 2021</a></li>
+	<li><a href="http://dmitrysoshnikov.com/2021/05/">May 2021</a></li>
+	<li><a href="http://dmitrysoshnikov.com/2020/12/">December 2020</a></li>
+	<li><a href="http://dmitrysoshnikov.com/2020/10/">October 2020</a></li>
+	<li><a href="http://dmitrysoshnikov.com/2020/03/">March 2020</a></li>
+	<li><a href="http://dmitrysoshnikov.com/2019/10/">October 2019</a></li>
+	<li><a href="http://dmitrysoshnikov.com/2019/08/">August 2019</a></li>
+	<li><a href="http://dmitrysoshnikov.com/2019/07/">July 2019</a></li>
+	<li><a href="http://dmitrysoshnikov.com/2019/02/">February 2019</a></li>
+	<li><a href="http://dmitrysoshnikov.com/2017/12/">December 2017</a></li>
+	<li><a href="http://dmitrysoshnikov.com/2017/11/">November 2017</a></li>
+	<li><a href="http://dmitrysoshnikov.com/2016/10/">October 2016</a></li>
+	<li><a href="http://dmitrysoshnikov.com/2016/09/">September 2016</a></li>
+	<li><a href="http://dmitrysoshnikov.com/2016/02/">February 2016</a></li>
+	<li><a href="http://dmitrysoshnikov.com/2016/01/">January 2016</a></li>
+	<li><a href="http://dmitrysoshnikov.com/2015/09/">September 2015</a></li>
+	<li><a href="http://dmitrysoshnikov.com/2014/09/">September 2014</a></li>
+	<li><a href="http://dmitrysoshnikov.com/2014/08/">August 2014</a></li>
+	<li><a href="http://dmitrysoshnikov.com/2011/07/">July 2011</a></li>
+	<li><a href="http://dmitrysoshnikov.com/2011/02/">February 2011</a></li>
+	<li><a href="http://dmitrysoshnikov.com/2011/01/">January 2011</a></li>
+	<li><a href="http://dmitrysoshnikov.com/2010/12/">December 2010</a></li>
+	<li><a href="http://dmitrysoshnikov.com/2010/09/">September 2010</a></li>
+	<li><a href="http://dmitrysoshnikov.com/2010/06/">June 2010</a></li>
+	<li><a href="http://dmitrysoshnikov.com/2010/04/">April 2010</a></li>
+	<li><a href="http://dmitrysoshnikov.com/2010/03/">March 2010</a></li>
+	<li><a href="http://dmitrysoshnikov.com/2010/02/">February 2010</a></li>
+	<li><a href="http://dmitrysoshnikov.com/2009/11/">November 2009</a></li>
+	<li><a href="http://dmitrysoshnikov.com/2009/09/">September 2009</a></li>
+	<li><a href="http://dmitrysoshnikov.com/2009/07/">July 2009</a></li>
+	<li><a href="http://dmitrysoshnikov.com/2009/06/">June 2009</a></li>
+				</ul>
+			</aside>
+
+			<aside id="meta" class="widget">
+				<h1 class="widget-title">Meta</h1>
+				<ul>
+										<li><a href="http://dmitrysoshnikov.com/wp-login.php">Log in</a></li>
+									</ul>
+			</aside>
+
+			</div><!-- #secondary .widget-area -->
+	</div>
+					</div>
+	<!-- .entry-content -->
+	
+			<div class="post-author-bottom">
+			<div class="post-author-card">
+				<a class="site-logo" href="http://dmitrysoshnikov.com/">
+					<img alt="" src="./JavaScript. The Core. – Dmitry Soshnikov_files/882f228c4993ccf0a86e96394636415c.jpeg" srcset="http://2.gravatar.com/avatar/882f228c4993ccf0a86e96394636415c?s=200&amp;d=mm&amp;r=g 2x" class="avatar avatar-100 photo" height="100" width="100" loading="lazy">				</a>
+
+				<div class="post-author-info">
+					<h1 class="site-title">
+						<span class="byline"><span class="author vcard"><a class="url fn n" href="http://dmitrysoshnikov.com/" title="View all posts by Dmitry Soshnikov" rel="author">Dmitry Soshnikov</a></span></span>					</h1>
+
+					<h2 class="site-description">Software engineer interested in learning and education. Sometimes blog on topics of programming languages theory, compilers, and ECMAScript.</h2>
+				</div>
+				<div class="post-published-date">
+					<h2 class="site-published">Published</h2>
+					<h2 class="site-published-date"><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/" title="JavaScript. The Core." rel="bookmark"><time class="entry-date" datetime="2010-09-02T23:44:02-08:00" pubdate="pubdate">2010-09-02</time></a></h2>
+										
+					
+				</div>
+			</div>
+		</div>
+		<!-- .post-author-bottom -->
+		
+	<footer class="entry-meta">
+		
+					<div id="share-comment-button" style="display: block;">
+				<button>
+					<i class="share-comment-icon"></i>Write a Comment				</button>
+			</div>
+		
+			</footer>
+	<!-- .entry-meta -->
+
+</article><!-- #post-1581 -->
+
+			
+				
+	<div id="commentform-top" style="display: none;"></div> <!-- do not remove; used by jQuery to move the comment reply form here -->
+		<div id="respond" class="comment-respond" style="display: none;">
+		<h3 id="reply-title" class="comment-reply-title"></h3><form action="http://dmitrysoshnikov.com/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate=""><div id="main-reply-title"><h3>Write a Comment</h3></div><div class="comment-form-reply-title"><p>Comment</p></div><p class="comment-form-comment" id="comment-form-field"><textarea id="comment" name="comment" cols="60" rows="6" aria-required="true"></textarea></p><p class="comment-form-author"><label for="author">Name</label><input id="author" name="author" type="text" value="" aria-required="true"></p>
+<p class="comment-form-email"><label for="email">Email</label><input id="email" name="email" type="text" value="" aria-required="true"></p>
+<p class="comment-form-url"><label for="url">Website</label><input id="url" name="url" type="text" value=""></p>
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"> <label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Submit Comment"> <input type="hidden" name="comment_post_ID" value="1581" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="cd763a3582"></p><p style="display: none !important;"><label>Δ<textarea name="ak_hp_textarea" cols="45" rows="8" maxlength="100"></textarea></label><input type="hidden" id="ak_js_1" name="ak_js" value="1691235275480"><script>document.getElementById( "ak_js_1" ).setAttribute( "value", ( new Date() ).getTime() );</script></p></form>	</div><!-- #respond -->
+	
+
+	<div id="comments" class="comments-area">
+				
+							<h2 class="comments-title">
+					<i class="comments-title-icon"></i>
+					154 Comments				</h2>
+			
+							<nav role="navigation" id="comment-nav-above" class="site-navigation comment-navigation">
+					<h1 class="screen-reader-text">Comment navigation</h1>
+
+					<div class="nav-previous"><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/comment-page-3/#comments"><button>← Older Comments</button></a></div>
+					<div class="nav-next"></div>
+				</nav><!-- #comment-nav-before .site-navigation .comment-navigation -->
+			
+			<ol class="commentlist">
+						<li class="comment even thread-even depth-1" id="li-comment-229970">
+		<article id="comment-229970" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="./JavaScript. The Core. – Dmitry Soshnikov_files/b0f115db1e2d07071ec8fc9d132d31df.jpeg" srcset="http://2.gravatar.com/avatar/b0f115db1e2d07071ec8fc9d132d31df?s=96&amp;d=mm&amp;r=g 2x" class="avatar avatar-48 photo" height="48" width="48" loading="lazy">					<cite class="fn">Karthi</cite>									</div>
+				<!-- .comment-author .vcard -->
+				<div class="comment-meta commentmetadata">
+					<a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/comment-page-4/#comment-229970">
+						<time pubdate="" datetime="2019-12-01T17:28:09-08:00">
+							2019-12-01						</time>
+					</a>
+									</div>
+				<!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content "><p>Thank you for the explanation</p>
+</div>
+
+			<div class="reply">
+							</div>
+			<!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-258595">
+		<article id="comment-258595" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="./JavaScript. The Core. – Dmitry Soshnikov_files/e2679277de05b2c22b45f1f3629ecc48.png" srcset="http://2.gravatar.com/avatar/e2679277de05b2c22b45f1f3629ecc48?s=96&amp;d=mm&amp;r=g 2x" class="avatar avatar-48 photo" height="48" width="48" loading="lazy">					<cite class="fn">Max</cite>									</div>
+				<!-- .comment-author .vcard -->
+				<div class="comment-meta commentmetadata">
+					<a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/comment-page-4/#comment-258595">
+						<time pubdate="" datetime="2021-09-08T18:50:49-08:00">
+							2021-09-08						</time>
+					</a>
+									</div>
+				<!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content "><p>Thnk you so much Dmitry for this (so much needed) explanation!</p>
+</div>
+
+			<div class="reply">
+							</div>
+			<!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="li-comment-302971">
+		<article id="comment-302971" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="./JavaScript. The Core. – Dmitry Soshnikov_files/29785fd5cd6ba6827c9421d563e2bbf0.png" srcset="http://2.gravatar.com/avatar/29785fd5cd6ba6827c9421d563e2bbf0?s=96&amp;d=mm&amp;r=g 2x" class="avatar avatar-48 photo" height="48" width="48" loading="lazy">					<cite class="fn">mrinal verma</cite>									</div>
+				<!-- .comment-author .vcard -->
+				<div class="comment-meta commentmetadata">
+					<a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/comment-page-4/#comment-302971">
+						<time pubdate="" datetime="2022-07-24T14:44:29-08:00">
+							2022-07-24						</time>
+					</a>
+									</div>
+				<!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content "><p>please add updated at to the article</p>
+</div>
+
+			<div class="reply">
+							</div>
+			<!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-admin bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-303076">
+		<article id="comment-303076" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt="" src="./JavaScript. The Core. – Dmitry Soshnikov_files/882f228c4993ccf0a86e96394636415c(1).jpeg" srcset="http://2.gravatar.com/avatar/882f228c4993ccf0a86e96394636415c?s=96&amp;d=mm&amp;r=g 2x" class="avatar avatar-48 photo" height="48" width="48" loading="lazy">					<cite class="fn"><a href="http://dmitrysoshnikov.com/" rel="external nofollow ugc" class="url">Dmitry Soshnikov</a></cite>									</div>
+				<!-- .comment-author .vcard -->
+				<div class="comment-meta commentmetadata">
+					<a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/comment-page-4/#comment-303076">
+						<time pubdate="" datetime="2022-07-25T12:50:04-08:00">
+							2022-07-25						</time>
+					</a>
+									</div>
+				<!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content "><p>@<strong>mrinal verma</strong> – thanks, will consider adding. Also, usually we have separate editions for the article and courses. See the <a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core-2nd-edition/">JavaScript. The Core: 2nd Edition</a>.</p>
+</div>
+
+			<div class="reply">
+							</div>
+			<!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+			</ol><!-- .commentlist -->
+
+							<nav role="navigation" id="comment-nav-below" class="site-navigation comment-navigation">
+					<h1 class="screen-reader-text">Comment navigation</h1>
+
+					<div class="nav-previous"><a href="http://dmitrysoshnikov.com/ecmascript/javascript-the-core/comment-page-3/#comments"><button>← Older Comments</button></a></div>
+					<div class="nav-next"></div>
+				</nav><!-- #comment-nav-below .site-navigation .comment-navigation -->
+			
+		
+		
+		
+			
+			<div id="share-comment-button-bottom" style="display: block;">
+				<button>
+					<i class="share-comment-icon"></i>Write a Comment				</button>
+			</div>
+			<div id="commentform-bottom" style="display: none;"></div> <!-- do not remove; used by jQuery to move the comment reply form here -->
+		
+							
+							
+	</div><!-- #comments .comments-area -->
+
+
+				
+																			<div id="taglist">
+						<ul class="taglist"><li class="taglist-title">Related Content by Tag</li><li><a href="http://dmitrysoshnikov.com/tag/scope/" rel="tag">[[Scope]]</a></li><li><a href="http://dmitrysoshnikov.com/tag/activation-object/" rel="tag">Activation object</a></li><li><a href="http://dmitrysoshnikov.com/tag/ecma-262-3/" rel="tag">ECMA-262-3</a></li><li><a href="http://dmitrysoshnikov.com/tag/ecmascript/" rel="tag">ECMAScript</a></li><li><a href="http://dmitrysoshnikov.com/tag/execution-context/" rel="tag">execution context</a></li><li><a href="http://dmitrysoshnikov.com/tag/javascript/" rel="tag">JavaScript</a></li><li><a href="http://dmitrysoshnikov.com/tag/oop/" rel="tag">OOP</a></li><li><a href="http://dmitrysoshnikov.com/tag/scope-chain/" rel="tag">Scope chain</a></li><li><a href="http://dmitrysoshnikov.com/tag/this/" rel="tag">this</a></li><li><a href="http://dmitrysoshnikov.com/tag/variable-object/" rel="tag">Variable object</a></li></ul>					</div>
+				
+						
+
+		</main>
+		<!-- #content .site-content -->
+	</div><!-- #primary .content-area -->
+
+
+</div><!-- #main .site-main -->
+
+<footer id="colophon" class="site-footer" itemscope="itemscope" itemtype="http://schema.org/WPFooter" role="contentinfo">
+	<div class="site-info">
+		<a href="http://independentpublisher.me/" rel="designer" title="Independent Publisher: A beautiful reader-focused WordPress theme, for you.">Independent Publisher</a> empowered by <a href="http://wordpress.org/" rel="generator" title="WordPress: A free open-source publishing platform">WordPress</a>	</div>
+	<!-- .site-info -->
+</footer><!-- #colophon .site-footer -->
+</div><!-- #page .hfeed .site -->
+
+			<script>
+				;(function () { window.wpDarkMode = {"config":{"brightness":100,"contrast":90,"sepia":10},"enable_preset":false,"customize_colors":false,"colors":{"bg":"#000","text":"#dfdedb","link":"#e58c17"},"enable_frontend":true,"enable_backend":false,"enable_os_mode":true,"excludes":"rs-fullwidth-wrap, .mejs-container, ._channels-container","includes":"","is_excluded":false,"remember_darkmode":false,"default_mode":false,"keyboard_shortcut":true,"url_parameter":false,"images":"","videos":"","is_pro_active":false,"is_ultimate_active":false,"pro_version":0,"is_elementor_editor":false,"is_block_editor":false,"frontend_mode":false,"pluginUrl":"http:\/\/dmitrysoshnikov.com\/wp-content\/plugins\/wp-dark-mode\/"}; 
+					window.checkOsDarkMode = () => { if (!window.wpDarkMode.enable_os_mode || localStorage.getItem('wp_dark_mode_active')) return false; 
+						const darkMediaQuery = window.matchMedia('(prefers-color-scheme: dark)'); 
+						if (darkMediaQuery.matches) return true; 
+						try { darkMediaQuery.addEventListener('change', function(e) { return e.matches == true; }); } catch (e1) { 
+							try { darkMediaQuery.addListener(function(e) { return e.matches == true; }); } catch (e2) { console.error(e2); return false; } } return false; }; 
+						const is_saved = localStorage.getItem('wp_dark_mode_active'); const shouldDarkMode = is_saved == '1' || (!is_saved && window.checkOsDarkMode()); 
+						if (shouldDarkMode) { const isCustomColor = parseInt("");
+							const isPerformanceMode = Boolean(); if (!isCustomColor && !isPerformanceMode) { if (document.getElementById('pre_css')) { document.getElementById('pre_css').remove(); } 
+							if ('' === ``) { if ( typeof DarkMode === 'object') DarkMode.enable(); } } } })(); 
+			</script>
+			
+<div class="wp-dark-mode-switcher wp-dark-mode-ignore style-1  floating right_bottom">
+
+	
+	<label for="wp-dark-mode-switch" class="wp-dark-mode-ignore wp-dark-mode-none">
+		<div class="modes wp-dark-mode-ignore">
+			<img class="light" src="./JavaScript. The Core. – Dmitry Soshnikov_files/light.png" alt="Light">
+			<img class="dark" src="./JavaScript. The Core. – Dmitry Soshnikov_files/dark.png" alt="Dark">
+		</div>
+	</label>
+</div><script type="text/javascript" src="./JavaScript. The Core. – Dmitry Soshnikov_files/shCore.js.download" id="syntaxhighlighter-core-js"></script>
+<script type="text/javascript" src="./JavaScript. The Core. – Dmitry Soshnikov_files/shBrushJScript.js.download" id="syntaxhighlighter-brush-jscript-js"></script>
+<script type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://dmitrysoshnikov.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.9b";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.head.appendChild( corecss );
+		var themecssurl = "http://dmitrysoshnikov.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.9b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		document.head.appendChild( themecss );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['auto-links'] = false;
+	SyntaxHighlighter.defaults['class-name'] = 'dsHightlight';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['tab-size'] = 2;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.defaults['wrap-lines'] = false;
+	SyntaxHighlighter.all();
+
+	// Infinite scroll support
+	if ( typeof( jQuery ) !== 'undefined' ) {
+		jQuery( function( $ ) {
+			$( document.body ).on( 'post-load', function() {
+				SyntaxHighlighter.highlight();
+			} );
+		} );
+	}
+</script>
+<script type="text/javascript" src="./JavaScript. The Core. – Dmitry Soshnikov_files/skip-link-focus-fix.js.download" id="independent-publisher-skip-link-focus-fix-js"></script>
+<script defer="" type="text/javascript" src="./JavaScript. The Core. – Dmitry Soshnikov_files/akismet-frontend.js.download" id="akismet-frontend-js"></script>
+<!--stats_footer_test--><script src="./JavaScript. The Core. – Dmitry Soshnikov_files/e-202331.js.download" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({blog:'12310956',v:'ext',post:'1581'});
+var load_cmc = function(){linktracker_init(12310956,1581,2);};
+if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+else load_cmc();
+</script><img src="./JavaScript. The Core. – Dmitry Soshnikov_files/g.gif" alt="" width="6" height="5" id="wpstats">
+
+
+
+</body></html>
