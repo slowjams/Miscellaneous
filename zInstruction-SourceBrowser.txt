@@ -1,0 +1,26 @@
+1. replace the solution you want in command line argument at HtmlGenerator C:\zSourceCode\EFCore\All.sln /out:$(SolutionDir)src\SourceIndexServer\index , you can edit it in lauchingsetting
+
+{
+  "profiles": {
+    "HtmlGenerator": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\zSourceCode\\EFCore\\All.sln /out:$(SolutionDir)src\\SourceIndexServer\\index"
+    }
+  }
+}
+
+
+"C:\\zSourceCode\\EFCore\\All.sln /out:$(SolutionDir)src\\SourceIndexServer\\index"
+"C:\\zSourceCode\\IdentityServer4\\src\\IdentityServer4\\IdentityServer4.sln /out:$(SolutionDir)src\\SourceIndexServer\\index"
+
+2. Setup HtmlGenerator as startup project, and hit ctrl + F5 (not F5)
+
+   this step takes some time and it will create index on SourceIndexServer
+
+3. create a powshell script with the following content:
+
+Set-Location -Path C:\zSourceCode\SourceBrowser\src\SourceIndexServer
+dotnet watch run --no-build
+
+after run the script, need to empty browser's cache 
+
