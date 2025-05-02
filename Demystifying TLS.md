@@ -263,4 +263,5 @@ Certificate:
         * Client uses server's public key to decrypt the signature and re-calculate the hash to comare,  and it is ok that server send this public key explicitly on the wire, since this public key will only being used **indirectly** combined with client's own private key (5 as Alice's private) to generate the seed value (3 as shared secret)
 
       (you might ask why Client needs to use one of these two methods to validate the server owns Certificate becuase browser can just compare the URL with the Common Name inside the certificate. This step is nescessary because a hacker can use a valida certificate and intecept your request to the real domain, which client will think the hacker is the true owner, but with this valdiation method, since hacker doesn't have the private key to decrypt, so client know something is wrong)
-        
+
+note that public key and private key are same kind, you choose one to be public key, then the other key will be private key. TLS uses public key to encrypt data, but for certificate signature, it uses private key (not public key this time) to encrypt the hash of certificate, so later client can use public key to decrypt it.
