@@ -262,6 +262,18 @@ Certificate:
         * Client validate signature using Server's public key and send this public key along with the signature (including hashing) are sent to the client
         * Client uses server's public key to decrypt the signature and re-calculate the hash to comare,  and it is ok that server send this public key explicitly on the wire, since this public key will only being used **indirectly** combined with client's own private key (5 as Alice's private) to generate the seed value (3 as shared secret)
 
-      (you might ask why Client needs to use one of these two methods to validate the server owns Certificate becuase browser can just compare the URL with the Common Name inside the certificate. This step is nescessary because a hacker can use a valida certificate and intecept your request to the real domain, which client will think the hacker is the true owner, but with this valdiation method, since hacker doesn't have the private key to decrypt, so client know something is wrong)
+You might ask why Client needs to use one of these two methods to validate the server owns Certificate becuase browser can just compare the URL with the Common Name inside the certificate. This step is nescessary because a hacker can use a valida certificate and intecept your request to the real domain, which client will think the hacker is the true owner, but with this valdiation method, since hacker doesn't have the private key to decrypt, so client know something is wrong. Image this scenario-DNS Spoofing or Network Hijacking:
 
-note that public key and private key are same kind, you choose one to be public key, then the other key will be private key. TLS uses public key to encrypt data, but for certificate signature, it uses private key (not public key this time) to encrypt the hash of certificate, so later client can use public key to decrypt it.
+1. A user types https://example.com
+
+2. A hacker hijacks DNS or tampers with the network (e.g., rogue Wi-Fi hotspot)
+
+3. The browser does go to example.com, but ends up connecting to the hacker’s IP
+
+4. The attacker presents a copied certificate for example.com (CN matches!)
+
+5. ❌ If the browser didn’t verify the attacker had the private key, it would trust the cert
+
+So even though the URL and CN match, the attacker must still prove private key ownership, or else the handshake will fail.
+
+Also note that public key and private key are same kind, you choose one to be public key, then the other key will be private key. TLS uses public key to encrypt data, but for certificate signature, it uses private key (not public key this time) to encrypt the hash of certificate, so later client can use public key to decrypt it.
